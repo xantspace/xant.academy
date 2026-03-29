@@ -5,32 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- PRIMARY META -->
-  <title>WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django &amp; Python Online</title>
-  <meta name="description" content="Join WebDev Cohort 1 — Nigeria’s hands-on web development bootcamp. Learn HTML, CSS, Python &amp; Django from scratch. Build real projects, deploy live apps. Freemium ₦5,000 | Premium ₦25,000." />
-  <meta name="keywords" content="learn web development Nigeria, Django course Nigeria, HTML CSS course online, web dev bootcamp Nigeria, learn Python Nigeria, web development for beginners Nigeria, online coding course Nigeria, Pleasant Johnson web dev" />
+  <title>WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django & Python Online</title>
+  <meta name="description" content="Join WebDev Cohort 1 — Nigeria’s most practical web dev bootcamp. Learn HTML, CSS, Python & Django from scratch. Build real projects, deploy live apps. Early Bird: Freemium ₦3,500 | Premium ₦23,000." />
+  <meta name="keywords" content="learn web development Nigeria, Django bootcamp Nigeria, HTML CSS course online, web dev cohort Nigeria, learn Python Nigeria, web development for beginners Nigeria, Xant Academy, Pleasant Johnson web dev" />
   <meta name="author" content="Pleasant Johnson" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://webdevcohort.com.ng/" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="canonical" href="https://xant-academy.vercel.app/" />
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://xant-academy.vercel.app/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://xant-academy.vercel.app/favicon.png" />
+  <link rel="apple-touch-icon" href="https://xant-academy.vercel.app/favicon.png" />
 
-  <!-- OPEN GRAPH -->
+  <!-- OPEN GRAPH / WHATSAPP -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webdevcohort.com.ng/" />
-  <meta property="og:title" content="WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django &amp; Python" />
-  <meta property="og:description" content="Nigeria’s most practical web development bootcamp. Learn to build and deploy real websites in just 3–7 days. Freemium &amp; Premium tracks available." />
-  <meta property="og:image" content="https://webdevcohort.com.ng/og-image.png" />
-  <meta property="og:site_name" content="WebDev Cohort" />
+  <meta property="og:url" content="https://xant-academy.vercel.app/" />
+  <meta property="og:title" content="WebDev Cohort 1: Learn to Code & Ship Real Products" />
+  <meta property="og:description" content="Build and deploy a real landing page and blog app in Nigeria's most practical web development bootcamp. ₦3,500 – ₦23,000 slots open now." />
+  <meta property="og:image" content="https://xant-academy.vercel.app/favicon.png" />
+  <meta property="og:image:secure_url" content="https://xant-academy.vercel.app/favicon.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Xant Academy WebDev Cohort" />
   <meta property="og:locale" content="en_NG" />
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@webdevcohort" />
+  <meta name="twitter:site" content="@xant_academy" />
   <meta name="twitter:creator" content="@pleasantjohnson" />
-  <meta name="twitter:title" content="WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django &amp; Python" />
-  <meta name="twitter:description" content="Nigeria’s most practical web dev bootcamp. Build real websites in 3–7 days. Freemium ₦5,000 | Premium ₦25,000." />
-  <meta name="twitter:image" content="https://webdevcohort.com.ng/og-image.png" />
+  <meta name="twitter:title" content="WebDev Cohort 1: Learn HTML, CSS, Django & Python" />
+  <meta name="twitter:description" content="Build real websites in 3–7 days. Freemium ₦3,500 | Premium ₦23,000." />
+  <meta name="twitter:image" content="https://xant-academy.vercel.app/favicon.png" />
 
   <!-- JSON-LD SCHEMA -->
   <script type="application/ld+json">
@@ -39,15 +45,17 @@
     "@graph": [
       {
         "@type": "Organization",
-        "name": "WebDev Cohort",
-        "url": "https://webdevcohort.com.ng/",
-        "logo": "https://webdevcohort.com.ng/og-image.png",
+        "name": "Xant Academy",
+        "url": "https://xant-academy.vercel.app/",
+        "logo": "https://xant-academy.vercel.app/favicon.png",
         "contactPoint": { "@type": "ContactPoint", "contactType": "customer support" }
       },
       {
         "@type": "Person",
         "name": "Pleasant Johnson",
         "jobTitle": "Web Developer & Instructor",
+        "url": "https://xant-academy.vercel.app/",
+        "image": "https://xant-academy.vercel.app/favicon.png",
         "description": "Django developer and web development instructor based in Nigeria with hands-on experience building production apps.",
         "knowsAbout": ["Python", "Django", "HTML", "CSS", "Web Development"]
       },
@@ -316,6 +324,38 @@
       padding: 2rem;
       margin-top: 1.5rem;
       color: var(--green-muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-sticker {
+      position: absolute;
+      top: 14px;
+      right: -32px;
+      background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%);
+      color: #04342C;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 35px;
+      transform: rotate(45deg);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    .promo-sticker-red {
+      position: absolute;
+      top: 14px;
+      right: -32px;
+      background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 35px;
+      transform: rotate(45deg);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 10;
     }
     .price-amount {
       font-family: 'Poppins', sans-serif;
@@ -1038,8 +1078,8 @@
     Build real projects and deploy live apps using the same tools professionals use in 2025.
   </p>
   <div class="hero-btns">
-    <a class="btn-outline" href="#free" aria-label="Join the Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
-    <a class="btn-primary" href="#paid" aria-label="Enroll in the Premium Django bootcamp for ₦25,000">Enroll in Premium Class — ₦25,000</a>
+    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join the Freemium HTML CSS course for ₦3,500">Join Freemium — ₦3,500</a>
+    <a class="btn-primary" href="#paid" aria-label="Enroll in the Premium Django bootcamp for ₦23,000">Enroll in Premium Class — ₦23,000</a>
   </div>
 </section>
 
@@ -1105,7 +1145,13 @@
 
     <!-- FREEMIUM PRICE BOX -->
     <div class="price-box">
-      <div class="price-amount">&#8358;5,000</div>
+      <div class="promo-sticker">SAVE 30% OFF</div>
+      <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">🔥 Early Bird Offer</div>
+      <div class="price-amount">
+        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">&#8358;5,000</span>
+        &#8358;3,500
+      </div>
+      <div class="price-period" style="font-weight: 600; color: #fff;">For the first 100 people only</div>
       <div class="price-period">One-time payment · 3-Day Intensive</div>
       <div class="price-includes">
         <div class="inc-item"><div class="inc-dot"></div>3 days of live sessions</div>
@@ -1113,7 +1159,7 @@
         <div class="inc-item"><div class="inc-dot"></div>Deployed landing page project</div>
         <div class="inc-item"><div class="inc-dot"></div>Path to Premium track</div>
       </div>
-      <a class="price-cta" href="https://paystack.com" target="_blank">Join Freemium &#8212; &#8358;5,000</a>
+      <a class="price-cta" href="https://paystack.com" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;" target="_blank">Join Freemium &#8212; &#8358;3,500</a>
     </div>
   </div>
 </section>
@@ -1181,7 +1227,13 @@
 
     <!-- PRICE BOX -->
     <div class="price-box">
-      <div class="price-amount">₦25,000</div>
+      <div class="promo-sticker-red">FLASH SALE</div>
+      <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">🚀 Flash Sale</div>
+      <div class="price-amount">
+        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">₦25,000</span>
+        ₦23,000
+      </div>
+      <div class="price-period" style="font-weight: 600; color: #fff;">For the first 50 people only</div>
       <div class="price-period">One-time payment · Hybrid (Live Sessions + Recordings)</div>
       <div class="price-includes">
         <div class="inc-item"><div class="inc-dot"></div>7 days of live sessions</div>
@@ -1189,7 +1241,7 @@
         <div class="inc-item"><div class="inc-dot"></div>Portfolio-ready blog project</div>
         <div class="inc-item"><div class="inc-dot"></div>Instructor Q&amp;A support</div>
       </div>
-      <a class="price-cta" href="https://paystack.com" target="_blank">Secure Your Spot!!!</a>
+      <a class="price-cta" href="https://paystack.com" style="background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); color: #fff; font-weight: 700;" target="_blank">Secure Your Spot!!!</a>
     </div>
   </div>
 </section>
@@ -1217,8 +1269,8 @@
         </div>
       </div>
       <div class="video-cta instructor-cta">
-        <a class="btn-outline" href="#free">Join Freemium — ₦5,000</a>
-        <a class="btn-primary" href="https://paystack.com" target="_blank">Enroll Premium — ₦25,000</a>
+        <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;">Join Freemium — ₦3,500</a>
+        <a class="btn-primary" href="https://paystack.com" target="_blank">Enroll Premium — ₦23,000</a>
       </div>
       <div class="video-trust">Secure payment via Paystack · Instant access after payment</div>
     </div>
@@ -1287,8 +1339,8 @@
   <h2 style="margin-bottom:.75rem">Ready to Start Building Websites in Nigeria?</h2>
   <p style="font-size:14px;color:#6b6b68;margin-bottom:2rem">Join WebDev Cohort 1 before spots fill up. Learn HTML, CSS, Python &amp; Django today.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a class="btn-outline" href="#free" aria-label="Join Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
-    <a class="btn-primary" href="#paid" aria-label="Enroll in Premium Django bootcamp for ₦25,000">Enroll — ₦25,000</a>
+    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join Freemium HTML CSS course for ₦3,500">Join Freemium — ₦3,500</a>
+    <a class="btn-primary" href="#paid" aria-label="Enroll in Premium Django bootcamp for ₦23,000">Enroll — ₦23,000</a>
   </div>
 </section>
 
@@ -1332,13 +1384,15 @@
       </div>
 
       <!-- CTA -->
-      <a class="spot-cta" href="#paid" id="spotCta">🔥 Enroll Premium — ₦25,000</a>
+      <a class="spot-cta" href="#paid" id="spotCta">🔥 Enroll Premium — ₦23,000</a>
       <div class="spot-footer">
         <span class="spot-footer-icon">🔒</span>
         Secure payment via Paystack · Only a few spots left
       </div>
     </div>
   </div>
+</div>
+
 </div>
 
 <script defer>
@@ -1445,12 +1499,20 @@
     // Show first time after 5-second delay
     setTimeout(showPopup, 5000);
 
-    // Repeat every 3 minutes (180,000ms)
-    setInterval(function() {
-      if (!overlay.classList.contains('active')) {
-        showPopup();
-      }
-    }, 180000);
+    // Re-trigger popup at random intervals (5-10 mins)
+    function scheduleNextPopup() {
+      const min = 5 * 60 * 1000;
+      const max = 10 * 60 * 1000;
+      const delay = Math.floor(Math.random() * (max - min + 1)) + min;
+      
+      setTimeout(function() {
+        if (!overlay.classList.contains('active')) {
+          showPopup();
+        }
+        scheduleNextPopup(); // Plan the follow-up
+      }, delay);
+    }
+    scheduleNextPopup(); // Start the cycle
 
     // Dismiss handlers
     dismiss.addEventListener('click', closePopup);
