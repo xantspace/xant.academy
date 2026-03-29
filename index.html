@@ -1378,36 +1378,39 @@
     const miniTimer = document.getElementById('miniTimer');
     const miniTime  = document.getElementById('miniTime');
 
-    // Total countdown: Synced to the next 15-minute interval (Server-style sync)
+    // Total countdown: 94-hour fixed deadline (Synced for everyone)
+    const targetDate = new Date('2026-04-02T16:00:00').getTime();
     let timerInterval;
 
     function pad(n) { return n < 10 ? '0' + n : n; }
 
     function updateTimer() {
-      const now = new Date();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
       
-      // Calculate remaining time in the current 15-minute block
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
+      if (distance < 0) {
+        if (timerInterval) clearInterval(timerInterval);
+        if(hrsEl) hrsEl.textContent = '00';
+        if(minsEl) minsEl.textContent = '00';
+        if(secsEl) secsEl.textContent = '00';
+        if(miniTime) miniTime.textContent = '00:00';
+        return;
+      }
       
-      const minutesRemaining = 14 - (minutes % 15);
-      const secondsRemaining = 59 - seconds;
+      const h = Math.floor(distance / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
       
-      const h = 0; // Keeping hours at 0 for a 15-min cycle, or could be adjusted for larger blocks
-      const m = minutesRemaining;
-      const s = secondsRemaining;
-      
-      // Update popup timer if visible
+      // Update popup timer components
       if (hrsEl) hrsEl.textContent = pad(h);
       if (minsEl) minsEl.textContent = pad(m);
       if (secsEl) secsEl.textContent = pad(s);
       
-      // Update mini timer
+      // Update mini persistent timer
+      // On the mini timer, we show H:M:S if hours exist
       if (miniTime) {
-        miniTime.textContent = pad(m) + ':' + pad(s);
+        miniTime.textContent = (h > 0 ? h + ':' : '') + pad(m) + ':' + pad(s);
       }
-
-      // If exactly 0, it just rolls over to 14:59 in the next block naturally
     }
 
     function showPopup() {
@@ -1421,7 +1424,7 @@
     
     function startCountDown() {
       if (timerInterval) clearInterval(timerInterval);
-      updateTimer(); // Initial call to avoid jump
+      updateTimer(); // Initial call
       timerInterval = setInterval(updateTimer, 1000);
     }
 
