@@ -1378,27 +1378,24 @@
     const miniTimer = document.getElementById('miniTimer');
     const miniTime  = document.getElementById('miniTime');
 
-    // Total countdown: 15 minutes
-    let totalSeconds = 15 * 60;
+    // Total countdown: Synced to the next 15-minute interval (Server-style sync)
     let timerInterval;
 
     function pad(n) { return n < 10 ? '0' + n : n; }
 
     function updateTimer() {
-      if (totalSeconds <= 0) {
-        clearInterval(timerInterval);
-        const expired = '00:00:00';
-        const miniExpired = '00:00';
-        if(hrsEl) hrsEl.textContent = '00';
-        if(minsEl) minsEl.textContent = '00';
-        if(secsEl) secsEl.textContent = '00';
-        if(miniTime) miniTime.textContent = miniExpired;
-        return;
-      }
-      totalSeconds--;
-      const h = Math.floor(totalSeconds / 3600);
-      const m = Math.floor((totalSeconds % 3600) / 60);
-      const s = totalSeconds % 60;
+      const now = new Date();
+      
+      // Calculate remaining time in the current 15-minute block
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      
+      const minutesRemaining = 14 - (minutes % 15);
+      const secondsRemaining = 59 - seconds;
+      
+      const h = 0; // Keeping hours at 0 for a 15-min cycle, or could be adjusted for larger blocks
+      const m = minutesRemaining;
+      const s = secondsRemaining;
       
       // Update popup timer if visible
       if (hrsEl) hrsEl.textContent = pad(h);
@@ -1407,8 +1404,10 @@
       
       // Update mini timer
       if (miniTime) {
-        miniTime.textContent = (h > 0 ? pad(h) + ':' : '') + pad(m) + ':' + pad(s);
+        miniTime.textContent = pad(m) + ':' + pad(s);
       }
+
+      // If exactly 0, it just rolls over to 14:59 in the next block naturally
     }
 
     function showPopup() {
@@ -1422,6 +1421,7 @@
     
     function startCountDown() {
       if (timerInterval) clearInterval(timerInterval);
+      updateTimer(); // Initial call to avoid jump
       timerInterval = setInterval(updateTimer, 1000);
     }
 
