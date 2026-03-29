@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PRIMARY META -->
+  <title>WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django &amp; Python Online</title>
+  <meta name="description" content="Join WebDev Cohort 1 — Nigeria’s hands-on web development bootcamp. Learn HTML, CSS, Python &amp; Django from scratch. Build real projects, deploy live apps. Freemium ₦5,000 | Premium ₦25,000." />
+  <meta name="keywords" content="learn web development Nigeria, Django course Nigeria, HTML CSS course online, web dev bootcamp Nigeria, learn Python Nigeria, web development for beginners Nigeria, online coding course Nigeria, Pleasant Johnson web dev" />
+  <meta name="author" content="Pleasant Johnson" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webdevcohort.com.ng/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webdevcohort.com.ng/" />
+  <meta property="og:title" content="WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django &amp; Python" />
+  <meta property="og:description" content="Nigeria’s most practical web development bootcamp. Learn to build and deploy real websites in just 3–7 days. Freemium &amp; Premium tracks available." />
+  <meta property="og:image" content="https://webdevcohort.com.ng/og-image.png" />
+  <meta property="og:site_name" content="WebDev Cohort" />
+  <meta property="og:locale" content="en_NG" />
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@webdevcohort" />
+  <meta name="twitter:creator" content="@pleasantjohnson" />
+  <meta name="twitter:title" content="WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django &amp; Python" />
+  <meta name="twitter:description" content="Nigeria’s most practical web dev bootcamp. Build real websites in 3–7 days. Freemium ₦5,000 | Premium ₦25,000." />
+  <meta name="twitter:image" content="https://webdevcohort.com.ng/og-image.png" />
+
+  <!-- JSON-LD SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "WebDev Cohort",
+        "url": "https://webdevcohort.com.ng/",
+        "logo": "https://webdevcohort.com.ng/og-image.png",
+        "contactPoint": { "@type": "ContactPoint", "contactType": "customer support" }
+      },
+      {
+        "@type": "Person",
+        "name": "Pleasant Johnson",
+        "jobTitle": "Web Developer & Instructor",
+        "description": "Django developer and web development instructor based in Nigeria with hands-on experience building production apps.",
+        "knowsAbout": ["Python", "Django", "HTML", "CSS", "Web Development"]
+      },
+      {
+        "@type": "Course",
+        "name": "WebDev Cohort 1 — Freemium Track",
+        "description": "A 3-day hands-on HTML and CSS course for beginners in Nigeria. Build and deploy a real landing page.",
+        "provider": { "@type": "Organization", "name": "WebDev Cohort" },
+        "instructor": { "@type": "Person", "name": "Pleasant Johnson" },
+        "courseMode": ["online", "blended"],
+        "inLanguage": "en",
+        "offers": { "@type": "Offer", "price": "5000", "priceCurrency": "NGN" }
+      },
+      {
+        "@type": "Course",
+        "name": "WebDev Cohort 1 — Premium Track",
+        "description": "A 7-day intensive Django web development bootcamp Nigeria. Build a production blog app with auth, CRUD, and live deployment.",
+        "provider": { "@type": "Organization", "name": "WebDev Cohort" },
+        "instructor": { "@type": "Person", "name": "Pleasant Johnson" },
+        "courseMode": ["online", "blended"],
+        "inLanguage": "en",
+        "offers": { "@type": "Offer", "price": "50000", "priceCurrency": "NGN" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Do I need prior experience to learn web development?", "acceptedAnswer": { "@type": "Answer", "text": "No. The freemium track starts from zero. For the premium track, completing the freemium class first is recommended but not required." } },
+          { "@type": "Question", "name": "What tools do I need for this web dev course?", "acceptedAnswer": { "@type": "Answer", "text": "Just a laptop and a stable internet connection. No complex local setup required." } },
+          { "@type": "Question", "name": "Can I use a mobile phone for this coding course?", "acceptedAnswer": { "@type": "Answer", "text": "While you can join sessions and follow the theory on a mobile device, a laptop is essential for the practical coding part of this cohort." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- PERFORMANCE: PRELOAD FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.cdnfonts.com/css/quantify" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green-dark: #04342C;
+      --green-mid: #0F6E56;
+      --green: #1D9E75;
+      --green-light: #5DCAA5;
+      --green-pale: #E1F5EE;
+      --green-muted: #9FE1CB;
+      --ink: #111210;
+      --ink-2: #3a3a38;
+      --ink-3: #6b6b68;
+      --bg: #f9f8f5;
+      --bg-2: #f0efe9;
+      --border: rgba(0,0,0,0.09);
+      --border-2: rgba(0,0,0,0.15);
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(249,248,245,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    body { padding-top: 60px; }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--green-mid); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--green-dark);
+      color: var(--green-muted);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .6px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .5s ease both;
+    }
+    h1 {
+      font-family: 'Quantify', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 1.25rem;
+      animation: fadeUp .5s .1s ease both;
+    }
+    h1 em { color: var(--green); font-style: normal; }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--ink-3);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+      animation: fadeUp .5s .2s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp .5s .3s ease both;
+    }
+    .btn-outline {
+      padding: 13px 26px;
+      border: 1.5px solid var(--border-2);
+      border-radius: 8px;
+      font-size: 14px; font-weight: 500;
+      background: var(--white);
+      color: var(--ink);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--green); background: var(--green-pale); }
+    .btn-primary {
+      padding: 13px 26px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 500;
+      background: var(--green);
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    /* STATS */
+    .stats {
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+      padding: 2rem 2rem 3.5rem;
+      max-width: 600px; margin: 0 auto;
+      animation: fadeUp .5s .4s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      color: var(--green);
+    }
+    .stat-label { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+    /* SECTION */
+    section { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-inner { max-width: 800px; }
+    .section-tag {
+      font-size: 11px; font-weight: 500; letter-spacing: .8px;
+      color: var(--green-mid); text-transform: uppercase; margin-bottom: .5rem;
+    }
+    h2 {
+      font-family: 'Quantify', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      margin-bottom: .5rem; letter-spacing: -.3px;
+    }
+    .section-meta { font-size: 14px; color: var(--ink-3); margin-bottom: 2rem; }
+
+    /* DAYS */
+    .days { display: flex; flex-direction: column; gap: 10px; }
+    .day-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .day-card:hover { border-color: var(--green-light); box-shadow: 0 2px 12px rgba(29,158,117,.08); }
+    .day-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px; font-weight: 700;
+      color: var(--green);
+      min-width: 38px; padding-top: 3px;
+      letter-spacing: .3px;
+    }
+    .day-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+    .day-desc { font-size: 13px; color: var(--ink-3); line-height: 1.55; }
+
+    /* FREE TAG */
+    .free-pill {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green-mid);
+      font-size: 12px; font-weight: 500;
+      padding: 4px 12px; border-radius: 20px;
+      margin-top: 1.25rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* PRICE BOX */
+    .price-box {
+      background: var(--green-dark);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      color: var(--green-muted);
+    }
+    .price-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem; font-weight: 800;
+      color: #fff; line-height: 1;
+    }
+    .price-period { font-size: 13px; margin-top: 6px; opacity: .7; }
+    .price-includes {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .inc-item {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-size: 13px; color: var(--green-muted);
+    }
+    .inc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green-light); flex-shrink: 0; margin-top: 5px;
+    }
+    .price-cta {
+      margin-top: 1.75rem;
+      display: block; width: 100%;
+      background: var(--green);
+      color: #fff; border: none;
+      padding: 15px; border-radius: 8px;
+      font-size: 15px; font-weight: 500;
+      cursor: pointer; text-align: center;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .price-cta:hover { background: var(--green-light); transform: translateY(-1px); }
+
+    /* TUTOR */
+    .tutor-card {
+      display: flex; gap: 16px; align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 18px; color: #fff; flex-shrink: 0;
+    }
+    .tutor-name { font-size: 15px; font-weight: 500; }
+    .tutor-bio { font-size: 13px; color: var(--ink-3); margin-top: 3px; line-height: 1.5; }
+    .tutor-badge {
+      display: inline-block;
+      background: var(--green-pale); color: var(--green-mid);
+      font-size: 11px; padding: 2px 8px; border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    /* FAQ */
+    .faq { display: flex; flex-direction: column; gap: 1px; margin-top: 1.5rem; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left;
+      background: none; border: none;
+      padding: 14px 18px;
+      font-size: 14px; font-weight: 500;
+      cursor: pointer; color: var(--ink);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q:hover { background: var(--bg-2); }
+    .faq-icon { font-size: 18px; color: var(--green); transition: transform .25s; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      font-size: 13px; color: var(--ink-3); line-height: 1.65;
+      padding: 0 18px;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 18px 14px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 12px;
+      color: var(--ink-3);
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    /* VIDEO */
+    .video-container {
+      margin-top: 2rem;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--ink);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+    }
+    .video-container video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .video-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.5) 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: opacity .4s ease;
+    }
+    .video-overlay.hidden { opacity: 0; pointer-events: none; }
+    .play-icon {
+      width: 68px; height: 68px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; color: #fff;
+      box-shadow: 0 0 0 12px rgba(29,158,117,.25);
+      transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow .3s;
+      margin-bottom: .75rem;
+    }
+    .video-overlay:hover .play-icon {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 18px rgba(29,158,117,.18);
+    }
+    .video-overlay-label {
+      color: #fff; font-size: 13px; font-weight: 500;
+      letter-spacing: .3px; opacity: .9;
+    }
+    .video-title {
+      position: absolute; bottom: 1.25rem; left: 1.5rem;
+      color: rgba(255,255,255,.75); font-size: 12px;
+      z-index: 3; pointer-events: none;
+    }
+
+    /* VIDEO CTA */
+    .video-cta {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .video-cta .btn-primary,
+    .video-cta .btn-outline {
+      flex: 1;
+      text-align: center;
+      min-width: 180px;
+    }
+    .video-trust {
+      margin-top: .85rem;
+      font-size: 12px;
+      color: var(--ink-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .video-trust::before {
+      content: '🔒';
+      font-size: 11px;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-glow {
+      0%   { box-shadow: 0 0 0 0 rgba(29,158,117,0.55); transform: translateY(0); }
+      50%  { box-shadow: 0 0 0 10px rgba(29,158,117,0); transform: translateY(-3px); }
+      100% { box-shadow: 0 0 0 0 rgba(29,158,117,0); transform: translateY(0); }
+    }
+    @keyframes nudge {
+      0%, 100% { transform: translateY(0); }
+      30%       { transform: translateY(-3px); }
+      60%       { transform: translateY(-1px); }
+    }
+    .video-cta .btn-primary {
+      animation: pulse-glow 2s ease-in-out 2s infinite;
+    }
+    .video-cta .btn-outline {
+      animation: nudge 2.4s ease-in-out 2.4s infinite;
+    }
+    .video-cta .btn-primary:hover,
+    .video-cta .btn-outline:hover {
+      animation: none;
+    }
+
+    /* FLOATING ICONS */
+    .hero { position: relative; overflow: visible; }
+    .float-icons { pointer-events: none; }
+    .fi {
+      position: absolute;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      opacity: 0;
+      animation: fi-appear .6s ease forwards, fi-float 4s ease-in-out infinite;
+    }
+    .fi i {
+      font-size: 2.4rem;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));
+    }
+    .fi span {
+      font-size: 9px; font-weight: 600;
+      letter-spacing: .6px; text-transform: uppercase;
+      color: var(--ink-3);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2px 7px; border-radius: 20px;
+    }
+    @keyframes fi-appear {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fi-float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-10px) rotate(2deg); }
+    }
+    /* positions & stagger */
+    .fi-html  { top: 18%; left: 3%; animation-delay: 0s, .6s;  animation-duration: .6s, 3.8s; }
+    .fi-css   { bottom: 22%; left: 5%; animation-delay: .15s, .75s; animation-duration: .6s, 4.3s; }
+    .fi-tw    { top: 12%; right: 4%; animation-delay: .3s,  .9s;  animation-duration: .6s, 3.5s; }
+    .fi-py    { bottom: 18%; right: 5%; animation-delay: .45s, 1.05s; animation-duration: .6s, 4.6s; }
+    .fi-dj    { top: 50%; right: 2%; animation-delay: .6s,  1.2s; animation-duration: .6s, 5s; }
+
+    /* hide on small screens */
+    @media (max-width: 760px) { .fi { display: none; } }
+    @media (max-width: 560px) {
+      h1 { font-size: 2.2rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      section { padding: 2.5rem 1.25rem; }
+      .price-includes { grid-template-columns: 1fr; }
+      .stats { gap: 1.5rem; }
+      nav { padding: 0 1.25rem; }
+    }
+
+    /* DESKTOP LAYOUT */
+    @media (min-width: 1024px) {
+
+      /* WIDER NAV */
+      nav { padding: 0 4rem; }
+
+      /* WIDER HERO */
+      .hero {
+        max-width: 1200px;
+        padding: 7rem 4rem 5rem;
+      }
+      h1 { font-size: clamp(3rem, 5vw, 5rem); }
+      .hero-sub { max-width: 680px; font-size: 1.15rem; }
+
+      /* STATS SPREAD */
+      .stats {
+        max-width: 1200px;
+        gap: 0;
+        padding: 2.5rem 4rem 4rem;
+        justify-content: space-around;
+      }
+      .stat { flex: 1; border-right: 1px solid var(--border); padding: 0 2rem; }
+      .stat:last-child { border-right: none; }
+      .stat-num { font-size: 2.4rem; }
+      .stat-label { font-size: 13px; }
+
+      /* WIDER SECTIONS */
+      section { padding: 4rem 4rem; }
+
+      /* CURRICULUM GRID — 2 COLUMNS */
+      .days {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .day-card {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 22px;
+        height: 100%;
+      }
+      .day-num { font-size: 11px; min-width: auto; }
+      .day-title { font-size: 15px; }
+      .day-desc { font-size: 13px; }
+
+      /* PREMIUM TRACK — DAYS + PRICE SIDE BY SIDE */
+      .premium-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      /* INSTRUCTOR SECTION — BIO + VIDEO SIDE BY SIDE */
+      .instructor-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        align-items: start;
+        margin-top: 2rem;
+      }
+      .instructor-left { display: flex; flex-direction: column; gap: 1.5rem; }
+      .tutor-card { margin-top: 0; }
+      .video-container { margin-top: 0; }
+      .instructor-cta { margin-top: 1rem; }
+
+      /* FAQ — 2 COLUMNS */
+      .faq {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      /* PRICE BOX FULL WIDTH */
+      .price-box { padding: 2.5rem; }
+      .price-includes { grid-template-columns: 1fr; }
+
+      /* FOOTER CTA */
+      footer { padding: 3rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav aria-label="Main navigation">
+    <a class="nav-logo" href="#" aria-label="WebDev Cohort Home"><span>Web</span>Dev Cohort</a>
+    <a class="nav-cta" href="#paid" aria-label="Enroll in Premium track for ₦25,000">Enroll — ₦25,000</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<main>
+<section class="hero" aria-labelledby="hero-heading">
+  <!-- FLOATING TECH ICONS -->
+  <div class="float-icons" aria-hidden="true">
+    <div class="fi fi-html">
+      <i class="devicon-html5-plain colored"></i>
+      <span>HTML5</span>
+    </div>
+    <div class="fi fi-css">
+      <i class="devicon-css3-plain colored"></i>
+      <span>CSS3</span>
+    </div>
+    <div class="fi fi-tw">
+      <i class="devicon-tailwindcss-plain colored"></i>
+      <span>Tailwind</span>
+    </div>
+    <div class="fi fi-py">
+      <i class="devicon-python-plain colored"></i>
+      <span>Python</span>
+    </div>
+    <div class="fi fi-dj">
+      <i class="devicon-django-plain" style="color:#092e20"></i>
+      <span>Django</span>
+    </div>
+  </div>
+
+  <div class="badge" aria-label="Cohort status">Cohort 1 · Limited Spots Available</div>
+  <h1 id="hero-heading">Learn Web Development in Nigeria.<br><em>Start Freemium. Go Pro.</em></h1>
+  <p class="hero-sub">
+    Master <strong>HTML, CSS, Python &amp; Django</strong> from scratch — Nigeria’s most practical web dev bootcamp.
+    Build real projects and deploy live apps using the same tools professionals use in 2025.
+  </p>
+  <div class="hero-btns">
+    <a class="btn-outline" href="#free" aria-label="Join the Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
+    <a class="btn-primary" href="#paid" aria-label="Enroll in the Premium Django bootcamp for ₦25,000">Enroll in Premium Class — ₦25,000</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" aria-label="Course statistics">
+  <div class="stat">
+    <div class="stat-num" aria-label="3 days">3</div>
+    <div class="stat-label">Days — Freemium Track</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" aria-label="7 days">7</div>
+    <div class="stat-label">Days — Premium Track</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" aria-label="2 projects">2</div>
+    <div class="stat-label">Portfolio Projects</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" aria-label="100 percent">100%</div>
+    <div class="stat-label">Practical &amp; Hands-on</div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- FREE TRACK -->
+<section id="free" aria-labelledby="free-heading">
+  <div class="section-tag">Freemium · 3 Days</div>
+  <h2 id="free-heading">HTML &amp; CSS Landing Page Course</h2>
+  <p class="section-meta">Learn web development Nigeria-style — build and deploy a real landing page from scratch for just ₦5,000. No prerequisites needed.</p>
+
+  <div class="premium-layout">
+    <div class="days">
+      <div class="day-card">
+        <div class="day-num">Day 1</div>
+        <div>
+          <div class="day-title">HTML Structure</div>
+          <div class="day-desc">Semantic tags, sections, navigation, and the full skeleton of your landing page.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 2</div>
+        <div>
+          <div class="day-title">CSS Styling</div>
+          <div class="day-desc">Flexbox, colors, typography, hero section, and card layouts — making it look great.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 3</div>
+        <div>
+          <div class="day-title">Polish + Deploy</div>
+          <div class="day-desc">Mobile responsiveness, final touches, and live deployment on GitHub Pages.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Outcome</div>
+        <div>
+          <div class="day-title">What You'll Build</div>
+          <div class="day-desc">A fully responsive, live landing page deployed on the web — your first real portfolio piece.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREEMIUM PRICE BOX -->
+    <div class="price-box">
+      <div class="price-amount">&#8358;5,000</div>
+      <div class="price-period">One-time payment · 3-Day Intensive</div>
+      <div class="price-includes">
+        <div class="inc-item"><div class="inc-dot"></div>3 days of live sessions</div>
+        <div class="inc-item"><div class="inc-dot"></div>Recording access via Google Drive</div>
+        <div class="inc-item"><div class="inc-dot"></div>Deployed landing page project</div>
+        <div class="inc-item"><div class="inc-dot"></div>Path to Premium track</div>
+      </div>
+      <a class="price-cta" href="https://paystack.com" target="_blank">Join Freemium &#8212; &#8358;5,000</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PAID TRACK -->
+<section id="paid" aria-labelledby="paid-heading">
+  <div class="section-tag">Premium · 1 Week</div>
+  <h2 id="paid-heading">Django Blog App Bootcamp Nigeria</h2>
+  <p class="section-meta">Nigeria’s most hands-on <strong>Django course</strong> — build a production-ready blog app with authentication, full CRUD, AI-assisted design, and live deployment. Learn Python web development the right way.</p>
+
+  <div class="premium-layout">
+    <div class="days">
+      <div class="day-card">
+        <div class="day-num">Day 1</div>
+        <div>
+          <div class="day-title">Python + Django Fundamentals</div>
+          <div class="day-desc">Environment setup, project structure, URL routing, and your first Django views.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 2</div>
+        <div>
+          <div class="day-title">Models + Database</div>
+          <div class="day-desc">Define the blog post model, run migrations, and explore the Django admin panel.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 3</div>
+        <div>
+          <div class="day-title">Templates + Rendering</div>
+          <div class="day-desc">Display posts dynamically with template inheritance and context passing.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 4</div>
+        <div>
+          <div class="day-title">Google IDX + Stitch AI Design</div>
+          <div class="day-desc">Set up your cloud dev environment and design the blog frontend with AI assistance.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 5</div>
+        <div>
+          <div class="day-title">Full CRUD Operations</div>
+          <div class="day-desc">Wire up create, edit, and delete functionality end-to-end with proper forms.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 6</div>
+        <div>
+          <div class="day-title">User Authentication</div>
+          <div class="day-desc">Login, signup, and protect routes so only authenticated users can create or edit posts.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 7</div>
+        <div>
+          <div class="day-title">Deployment</div>
+          <div class="day-desc">Production-ready configuration and live deployment straight from Google IDX.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICE BOX -->
+    <div class="price-box">
+      <div class="price-amount">₦25,000</div>
+      <div class="price-period">One-time payment · Hybrid (Live Sessions + Recordings)</div>
+      <div class="price-includes">
+        <div class="inc-item"><div class="inc-dot"></div>7 days of live sessions</div>
+        <div class="inc-item"><div class="inc-dot"></div>Lifetime recording access via Google Drive</div>
+        <div class="inc-item"><div class="inc-dot"></div>Portfolio-ready blog project</div>
+        <div class="inc-item"><div class="inc-dot"></div>Instructor Q&amp;A support</div>
+      </div>
+      <a class="price-cta" href="https://paystack.com" target="_blank">Secure Your Spot!!!</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- INSTRUCTOR -->
+<section aria-labelledby="instructor-heading">
+  <div class="section-tag">Your Instructor</div>
+  <h2 id="instructor-heading">Taught by a Developer Who Ships Real Products</h2>
+  <p class="section-meta">Not a theorist — an active developer with real projects in production across Nigeria and beyond.</p>
+
+  <div class="instructor-layout">
+    <div class="instructor-left">
+      <div class="tutor-card">
+        <div class="avatar" aria-label="Initials of instructor Pleasant Johnson">PJ</div>
+        <div>
+          <div class="tutor-name">Pleasant Johnson</div>
+          <div class="tutor-bio">Django developer and <strong>web dev instructor in Nigeria</strong> with hands-on experience building hotel booking systems, CBT platforms, and production web apps using TailwindCSS, GSAP, Python, and modern AI dev tools. Winner of TechRise Best Graduate — Web Development with Python.</div>
+          <div class="tutor-badge">TechRise Best Graduate · Web Dev with Python</div>
+        </div>
+      </div>
+      <div class="video-cta instructor-cta">
+        <a class="btn-outline" href="#free">Join Freemium — ₦5,000</a>
+        <a class="btn-primary" href="https://paystack.com" target="_blank">Enroll Premium — ₦25,000</a>
+      </div>
+      <div class="video-trust">Secure payment via Paystack · Instant access after payment</div>
+    </div>
+
+    <div class="instructor-right">
+      <!-- VIDEO SECTION -->
+      <div class="video-container" id="videoBox">
+        <video id="introVideo" preload="metadata">
+          <source src="baal.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
+          <div class="play-icon">▶</div>
+          <div class="video-overlay-label">Watch: Meet Your Instructor</div>
+        </div>
+        <div class="video-title">Introduction — Pleasant Johnson</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<hr class="divider" />
+
+<!-- FAQ -->
+<section aria-labelledby="faq-heading">
+  <div class="section-tag">FAQ</div>
+  <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do I need prior experience? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No. The freemium track starts from zero. For the premium track, completing the freemium class first is recommended but not required.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What tools do I need? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Just a laptop and a stable internet connection. No complex local setup required.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I access recordings? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">All session recordings are uploaded to a shared Google Drive folder organised by day. You get lifetime access after payment confirmation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I pay? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Via Paystack — supports cards, bank transfer, and USSD. Payment confirmation is instant and your Telegram invite link is sent immediately after.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+        Can I use a mobile phone for this coding course? <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">While you can join sessions and follow the theory on a mobile device, a laptop is essential for the practical coding part of this cohort. To build real projects effectively, you will definitely need a laptop.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER CTA -->
+<section style="text-align:center;padding-bottom:4rem" aria-label="Final call to action">
+  <h2 style="margin-bottom:.75rem">Ready to Start Building Websites in Nigeria?</h2>
+  <p style="font-size:14px;color:#6b6b68;margin-bottom:2rem">Join WebDev Cohort 1 before spots fill up. Learn HTML, CSS, Python &amp; Django today.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a class="btn-outline" href="#free" aria-label="Join Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
+    <a class="btn-primary" href="#paid" aria-label="Enroll in Premium Django bootcamp for ₦25,000">Enroll — ₦25,000</a>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <p>WebDev Cohort 1 <br> &copy; 2026 &nbsp;&middot;&nbsp; Nigeria’s Practical Web Dev Bootcamp &nbsp;&middot;&nbsp; Built with purpose, taught with honesty.</p>
+</footer>
+
+<script defer>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function playVideo() {
+    const video = document.getElementById('introVideo');
+    const overlay = document.getElementById('videoOverlay');
+    overlay.classList.add('hidden');
+    video.controls = true;
+    video.play();
+  }
+</script>
+
+</body>
+</html>
