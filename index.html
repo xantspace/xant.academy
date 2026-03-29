@@ -110,6 +110,28 @@
       --white: #ffffff;
     }
 
+    /* CUSTOM SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--green-muted);
+      border-radius: 12px;
+      border: 3px solid var(--bg); /* Creating a "floating" pill effect */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--green);
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--green-muted) var(--bg);
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -328,30 +350,65 @@
     }
     .price-cta:hover { background: var(--green-light); transform: translateY(-1px); }
 
-    /* TUTOR */
+    /* TUTOR (FB COMMENT STYLE) */
     .tutor-card {
-      display: flex; gap: 16px; align-items: center;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-top: 2.5rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 2rem;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
     }
     .avatar {
-      width: 52px; height: 52px; border-radius: 50%;
+      width: 48px; height: 48px; border-radius: 50%;
       background: var(--green);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Poppins', sans-serif; font-weight: 800;
-      font-size: 18px; color: #fff; flex-shrink: 0;
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 16px; color: #fff;
+      flex-shrink: 0;
+      border: none;
+      box-shadow: none;
+      margin: 0;
     }
-    .tutor-name { font-size: 15px; font-weight: 500; }
-    .tutor-bio { font-size: 13px; color: var(--ink-3); margin-top: 3px; line-height: 1.5; }
+    .tutor-comment-wrap {
+      flex: 1;
+    }
+    .tutor-info {
+      background: var(--green-pale); /* Using theme pale green for the 'bubble' */
+      padding: 12px 16px;
+      border-radius: 18px;
+      display: inline-block;
+      text-align: left;
+      margin: 0;
+    }
+    .tutor-name { 
+      font-size: 14px; 
+      font-weight: 700; 
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .tutor-bio { 
+      font-size: 13.5px; 
+      color: var(--ink); 
+      margin-top: 4px; 
+      line-height: 1.5; 
+      max-width: 100%;
+    }
     .tutor-badge {
       display: inline-block;
-      background: var(--green-pale); color: var(--green-mid);
-      font-size: 11px; padding: 2px 8px; border-radius: 4px;
-      margin-top: 5px;
+      font-size: 11px; 
+      font-weight: 600;
+      color: var(--green-mid);
+      margin-top: 6px;
+      margin-left: 12px;
+      padding: 0;
+      background: none;
+      opacity: 0.8;
+      cursor: default;
     }
+    .tutor-badge:hover { opacity: 1; }
 
     /* FAQ */
     .faq { display: flex; flex-direction: column; gap: 1px; margin-top: 1.5rem; }
@@ -620,6 +677,316 @@
       /* FOOTER CTA */
       footer { padding: 3rem 4rem; }
     }
+
+    /* ════════════════════════════════════════════════════════════
+       SECURE YOUR SPOT — POPUP ALERT
+       ════════════════════════════════════════════════════════════ */
+
+    /* BACKDROP */
+    .spot-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(4, 52, 44, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .45s cubic-bezier(.4,0,.2,1), visibility .45s;
+    }
+    .spot-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* CARD */
+    .spot-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.08) inset;
+      overflow: hidden;
+      transform: translateY(40px) scale(.92);
+      opacity: 0;
+      transition: transform .5s cubic-bezier(.175,.885,.32,1.275) .1s, opacity .4s ease .1s;
+    }
+    .spot-overlay.active .spot-card {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    /* DISMISS BTN */
+    .spot-dismiss {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,.45);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, transform .2s;
+      backdrop-filter: blur(4px);
+    }
+    .spot-dismiss:hover {
+      background: rgba(0,0,0,.7);
+      transform: scale(1.1);
+    }
+
+    /* BANNER IMAGE */
+    .spot-banner {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* BODY */
+    .spot-body {
+      padding: 1.75rem 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    /* LIVE BADGE */
+    .spot-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(29,158,117,.1);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .spot-live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: spot-pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes spot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(.7); }
+    }
+
+    .spot-title {
+      font-family: 'Quantify', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+    .spot-title em {
+      color: var(--green);
+      font-style: normal;
+    }
+    .spot-sub {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    /* COUNTDOWN TIMER */
+    .spot-timer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .spot-timer-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .spot-timer-num {
+      width: 52px;
+      height: 52px;
+      background: var(--green-dark);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(4,52,44,.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .spot-timer-num::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: rgba(255,255,255,.08);
+      border-radius: 10px 10px 0 0;
+    }
+    .spot-timer-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .spot-timer-sep {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      padding-top: 12px;
+      animation: spot-blink 1s step-end infinite;
+    }
+    @keyframes spot-blink {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* CTA BTN */
+    .spot-cta {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(29,158,117,.35);
+      animation: spot-cta-glow 2s ease-in-out infinite;
+    }
+    .spot-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(29,158,117,.45);
+      animation: none;
+    }
+    @keyframes spot-cta-glow {
+      0%, 100% { box-shadow: 0 4px 18px rgba(29,158,117,.35); }
+      50%      { box-shadow: 0 4px 28px rgba(29,158,117,.55); }
+    }
+
+    /* SPOTS LEFT */
+    .spot-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: .85rem;
+      font-size: 11px;
+      color: var(--ink-3);
+    }
+    .spot-footer-icon {
+      font-size: 13px;
+    }
+
+    /* CLOSE ANIMATION */
+    .spot-overlay.closing .spot-card {
+      transform: translateY(30px) scale(.9);
+      opacity: 0;
+      transition: transform .3s ease, opacity .25s ease;
+    }
+    .spot-overlay.closing {
+      opacity: 0;
+      transition: opacity .35s ease .1s;
+    }
+
+    /* RESPONSIVE */
+    /* MINI PERSISTENT TIMER */
+    .mini-timer {
+      position: fixed;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--white);
+      border: 1px solid var(--green-light);
+      border-radius: 20px;
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0;
+      visibility: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: opacity 0.4s, visibility 0.4s, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .mini-timer.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      animation: rgb-glow 4s linear infinite;
+    }
+
+    @keyframes rgb-glow {
+      0%   { border-color: #ff3e3e; color: #ff3e3e; box-shadow: 0 0 10px rgba(255,62,62,0.2); }
+      25%  { border-color: #ff3eea; color: #ff3eea; box-shadow: 0 0 10px rgba(255,62,234,0.2); }
+      50%  { border-color: #3e48ff; color: #3e48ff; box-shadow: 0 0 10px rgba(62,72,255,0.2); }
+      75%  { border-color: #3eff5b; color: #3eff5b; box-shadow: 0 0 10px rgba(62,255,91,0.2); }
+      100% { border-color: #ff3e3e; color: #ff3e3e; box-shadow: 0 0 10px rgba(255,62,62,0.2); }
+    }
+
+    .min-timer-dot {
+      width: 6px;
+      height: 6px;
+      background: currentColor; /* Dot now matches the RGB color */
+      border-radius: 50%;
+      animation: spot-pulse 1.5s infinite;
+    }
+
+    @media (max-width: 760px) {
+      .mini-timer {
+        bottom: 25px;
+        right: 20px;
+        font-size: 13px;
+        transform: translateX(40px);
+      }
+      .mini-timer.active {
+        transform: translateX(0);
+      }
+    }
+
+    @media (min-width: 761px) {
+      .mini-timer {
+        top: 13px;
+        right: 210px; /* Positioned to the left of the Enroll button */
+        transform: translateY(-10px);
+        background: var(--green-pale);
+      }
+      .mini-timer.active {
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -630,6 +997,11 @@
     <a class="nav-logo" href="#" aria-label="WebDev Cohort Home"><span>Web</span>Dev Cohort</a>
     <a class="nav-cta" href="#paid" aria-label="Enroll in Premium track for ₦25,000">Enroll — ₦25,000</a>
   </nav>
+  <!-- Timer outside nav to avoid backdrop-filter/clipping issues on mobile -->
+  <div class="mini-timer" id="miniTimer">
+    <span class="min-timer-dot"></span>
+    <span>Ends in: <span id="miniTime">15:00</span></span>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -834,10 +1206,14 @@
     <div class="instructor-left">
       <div class="tutor-card">
         <div class="avatar" aria-label="Initials of instructor Pleasant Johnson">PJ</div>
-        <div>
-          <div class="tutor-name">Pleasant Johnson</div>
-          <div class="tutor-bio">Django developer and <strong>web dev instructor in Nigeria</strong> with hands-on experience building hotel booking systems, CBT platforms, and production web apps using TailwindCSS, GSAP, Python, and modern AI dev tools. Winner of TechRise Best Graduate — Web Development with Python.</div>
-          <div class="tutor-badge">TechRise Best Graduate · Web Dev with Python</div>
+        <div class="tutor-comment-wrap">
+          <div class="tutor-info">
+            <div class="tutor-name">Pleasant Johnson</div>
+            <div class="tutor-bio">Django developer and <strong>web dev instructor in Nigeria</strong> with hands-on experience building production web apps. Winner of TechRise Best Graduate — Web Development with Python.</div>
+          </div>
+          <div>
+            <span class="tutor-badge">TechRise Best Graduate · Web Dev with Python</span>
+          </div>
         </div>
       </div>
       <div class="video-cta instructor-cta">
@@ -920,6 +1296,51 @@
   <p>WebDev Cohort 1 <br> &copy; 2026 &nbsp;&middot;&nbsp; Nigeria’s Practical Web Dev Bootcamp &nbsp;&middot;&nbsp; Built with purpose, taught with honesty.</p>
 </footer>
 
+<!-- ══════════════════════════════════════════════════════════
+     SECURE YOUR SPOT — POPUP ALERT
+     ══════════════════════════════════════════════════════════ -->
+<div class="spot-overlay" id="spotOverlay" role="dialog" aria-modal="true" aria-labelledby="spot-heading">
+  <div class="spot-card">
+    <!-- DISMISS -->
+    <button class="spot-dismiss" id="spotDismiss" aria-label="Close popup">&times;</button>
+
+    <!-- BANNER IMAGE -->
+    <img class="spot-banner" src="secure-spot-banner.png" alt="Secure your spot — WebDev Cohort promotional banner" loading="lazy" />
+
+    <!-- BODY -->
+    <div class="spot-body">
+      <div class="spot-live"><span class="spot-live-dot"></span> Limited-Time Offer</div>
+      <div class="spot-title" id="spot-heading">Secure Your <em>Spot</em> Now</div>
+      <p class="spot-sub">Cohort 1 seats are filling up fast. Lock in your place before the countdown ends and prices go up!</p>
+
+      <!-- TIMER -->
+      <div class="spot-timer" aria-label="Countdown timer">
+        <div class="spot-timer-unit">
+          <div class="spot-timer-num" id="spotHours">00</div>
+          <span class="spot-timer-label">Hours</span>
+        </div>
+        <div class="spot-timer-sep">:</div>
+        <div class="spot-timer-unit">
+          <div class="spot-timer-num" id="spotMinutes">15</div>
+          <span class="spot-timer-label">Mins</span>
+        </div>
+        <div class="spot-timer-sep">:</div>
+        <div class="spot-timer-unit">
+          <div class="spot-timer-num" id="spotSeconds">00</div>
+          <span class="spot-timer-label">Secs</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a class="spot-cta" href="#paid" id="spotCta">🔥 Enroll Premium — ₦25,000</a>
+      <div class="spot-footer">
+        <span class="spot-footer-icon">🔒</span>
+        Secure payment via Paystack · Only a few spots left
+      </div>
+    </div>
+  </div>
+</div>
+
 <script defer>
   function toggleFaq(btn) {
     const item = btn.parentElement;
@@ -941,6 +1362,105 @@
     video.controls = true;
     video.play();
   }
+
+  /* ═══════════════════════════════════════════
+     SECURE YOUR SPOT — POPUP LOGIC
+     ═══════════════════════════════════════════ */
+  (function() {
+    const overlay   = document.getElementById('spotOverlay');
+    const dismiss   = document.getElementById('spotDismiss');
+    const ctaBtn    = document.getElementById('spotCta');
+    const hrsEl     = document.getElementById('spotHours');
+    const minsEl    = document.getElementById('spotMinutes');
+    const secsEl    = document.getElementById('spotSeconds');
+    
+    // Persistent timer elements
+    const miniTimer = document.getElementById('miniTimer');
+    const miniTime  = document.getElementById('miniTime');
+
+    // Total countdown: 15 minutes
+    let totalSeconds = 15 * 60;
+    let timerInterval;
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function updateTimer() {
+      if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        const expired = '00:00:00';
+        const miniExpired = '00:00';
+        if(hrsEl) hrsEl.textContent = '00';
+        if(minsEl) minsEl.textContent = '00';
+        if(secsEl) secsEl.textContent = '00';
+        if(miniTime) miniTime.textContent = miniExpired;
+        return;
+      }
+      totalSeconds--;
+      const h = Math.floor(totalSeconds / 3600);
+      const m = Math.floor((totalSeconds % 3600) / 60);
+      const s = totalSeconds % 60;
+      
+      // Update popup timer if visible
+      if (hrsEl) hrsEl.textContent = pad(h);
+      if (minsEl) minsEl.textContent = pad(m);
+      if (secsEl) secsEl.textContent = pad(s);
+      
+      // Update mini timer
+      if (miniTime) {
+        miniTime.textContent = (h > 0 ? pad(h) + ':' : '') + pad(m) + ':' + pad(s);
+      }
+    }
+
+    function showPopup() {
+      // Re-show the popup even if previously dismissed
+      overlay.classList.remove('closing');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (miniTimer) miniTimer.classList.remove('active'); // Hide mini during big popup
+      startCountDown();
+    }
+    
+    function startCountDown() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function showMiniTimer() {
+      if (miniTimer) miniTimer.classList.add('active');
+      startCountDown();
+    }
+
+    function closePopup() {
+      overlay.classList.add('closing');
+      setTimeout(function() {
+        overlay.classList.remove('active', 'closing');
+        document.body.style.overflow = '';
+        showMiniTimer();
+      }, 400);
+    }
+
+    // Show first time after 5-second delay
+    setTimeout(showPopup, 5000);
+
+    // Repeat every 3 minutes (180,000ms)
+    setInterval(function() {
+      if (!overlay.classList.contains('active')) {
+        showPopup();
+      }
+    }, 180000);
+
+    // Dismiss handlers
+    dismiss.addEventListener('click', closePopup);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closePopup();
+    });
+    ctaBtn.addEventListener('click', closePopup);
+
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
+    });
+  })();
 </script>
 
 </body>
