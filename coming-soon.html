@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon | Xant Academy Cohort 1</title>
+  <meta name="description" content="Xant Academy Cohort 1 is almost here. Anticipate Nigeria's most practical web dev bootcamp." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/quantify" rel="stylesheet">
+  
+  <style>
+    :root {
+      --green-dark: #04342C;
+      --green: #1D9E75;
+      --green-light: #5DCAA5;
+      --bg: #f9f8f5;
+      --white: #ffffff;
+      --ink: #111210;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* GRADIENT BG */
+    .bg-gradient {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(29, 158, 117, 0.05) 0%, rgba(255, 255, 255, 0) 40%),
+                  radial-gradient(circle at 90% 80%, rgba(4, 52, 44, 0.05) 0%, rgba(255, 255, 255, 0) 40%);
+      z-index: -1;
+    }
+
+    .main-wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      padding: 2rem;
+      gap: 4rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* LEFT CONTENT */
+    .content-side {
+      flex: 1;
+      max-width: 550px;
+      animation: fadeIn 0.8s ease-out;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .logo {
+      font-family: 'Quantify', sans-serif;
+      font-size: 1.8rem;
+      color: var(--green-dark);
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--green-dark);
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #6b6b68;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* WAITLIST FORM */
+    .waitlist-form {
+      display: flex;
+      gap: 10px;
+      background: var(--white);
+      padding: 8px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(4, 52, 44, 0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    input {
+      border: none;
+      padding: 0 20px;
+      font-size: 1rem;
+      border-radius: 50px;
+      flex-grow: 1;
+      outline: none;
+      font-family: inherit;
+    }
+    button {
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: var(--green);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(29, 158, 117, 0.3);
+    }
+
+    .back-link {
+        color: #6b6b68; 
+        text-decoration: none; 
+        font-size: 0.9rem; 
+        font-weight: 500; 
+        transition: color 0.3s; 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 8px;
+        margin-bottom: 3rem;
+    }
+    .back-link:hover { color: var(--green); }
+
+    /* TIMER */
+    .timer {
+      display: flex;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+    .timer-unit {
+      text-align: center;
+    }
+    .timer-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green-dark);
+      display: block;
+    }
+    .timer-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green-light);
+      font-weight: 700;
+    }
+
+    /* RIGHT IMAGE SIDE */
+    .image-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: imageIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    @keyframes imageIn {
+      from { opacity: 0; transform: scale(0.9) translateX(50px); }
+      to { opacity: 1; transform: scale(1) translateX(0); }
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(4, 52, 44, 0.15);
+      border: 8px solid var(--white);
+      transform: rotate(3deg);
+      transition: transform 0.5s ease;
+    }
+    .image-container:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Decorative element */
+    .image-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--green);
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 10px 30px rgba(29, 158, 117, 0.3);
+      z-index: 2;
+      animation: badgePop 1.5s 0.5s both;
+    }
+    @keyframes badgePop {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer-note {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      font-size: 13px;
+      color: #cfceca;
+    }
+
+    @media (max-width: 1024px) {
+      .main-wrapper { flex-direction: column; text-align: center; gap: 3rem; margin-top: 4rem; margin-bottom: 4rem;}
+      .content-side { text-align: center; order: 2; }
+      .image-side { order: 1; }
+      .timer { justify-content: center; }
+      h1 { font-size: 2.8rem; }
+      .image-container { transform: rotate(0deg); max-width: 400px; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .waitlist-form { flex-direction: column; background: transparent; box-shadow: none; border: none; padding: 0; }
+      input { background: var(--white); height: 55px; border: 1px solid rgba(0,0,0,0.05); text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+
+  <main class="main-wrapper">
+    <!-- LEFT -->
+    <div class="content-side">
+      <div class="logo">XantSpace</div>
+      <h1>Something <span>Big</span> is Coming.</h1>
+      <p>Xant Academy Cohort 1 is almost ready. Join the waitlist to get exclusive early access and a 10% discount when we go live.</p>
+
+      <form class="waitlist-form" id="waitlistForm">
+      <input type="email" name="email" placeholder="Enter your email address" required />
+      <button type="submit" id="submitBtn">Join Waitlist</button>
+    </form>
+    
+    <div id="successMsg" style="display: none; color: var(--green); font-weight: 600; margin-bottom: 2rem; animation: fadeIn 0.5s;">
+        🎉 You've been added to the priority waitlist!
+    </div>
+    
+    <div style="margin-top: 2.5rem; margin-bottom: 3rem;" id="backLinkText">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Website
+        </a>
+    </div>
+
+    <div class="timer">
+      <div class="timer-unit">
+        <span class="timer-num" id="days">00</span>
+        <span class="timer-label">Days</span>
+      </div>
+      <div class="timer-unit">
+        <span class="timer-num" id="hours">00</span>
+        <span class="timer-label">Hours</span>
+      </div>
+      <div class="timer-unit">
+        <span class="timer-num" id="mins">00</span>
+        <span class="timer-label">Mins</span>
+      </div>
+      <div class="timer-unit">
+        <span class="timer-num" id="secs">00</span>
+        <span class="timer-label">Secs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="image-side">
+    <div class="image-container">
+      <img src="cohort.jpg" alt="Xant Academy Cohort 1 Preview Image" />
+    </div>
+    <div class="image-badge">Limited Slots · 2026</div>
+  </div>
+</main>
+
+<script>
+  // --- GOOGLE SHEETS INTEGRATION ---
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwXyZqDVK7UcGBJNWacC60J0nY5po71f0jErK9wHij_Gxqwk8dnmvli8iUinzQTZEZc/exec'; // REPLACE WITH YOUR URL
+  const form = document.getElementById('waitlistForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('successMsg');
+
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Sending...';
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          console.log('Success!', response);
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          document.getElementById('backLinkText').style.marginTop = '1rem';
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Join Waitlist';
+          alert('Something went wrong. Please try again!');
+        });
+    });
+  }
+
+  // Simple countdown logic (7 days from now)
+  const target = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = target - now;
+    
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    if(document.getElementById('days')) document.getElementById('days').innerText = d.toString().padStart(2, '0');
+    if(document.getElementById('hours')) document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+    if(document.getElementById('mins')) document.getElementById('mins').innerText = m.toString().padStart(2, '0');
+    if(document.getElementById('secs')) document.getElementById('secs').innerText = s.toString().padStart(2, '0');
+  }
+  
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+</body>
+</html>

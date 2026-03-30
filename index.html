@@ -1177,7 +1177,7 @@
         <div class="inc-item"><div class="inc-dot"></div>Deployed landing page project</div>
         <div class="inc-item"><div class="inc-dot"></div>Path to Premium track</div>
       </div>
-      <a class="price-cta" href="https://paystack.com" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;" target="_blank">Join Freemium &#8212; &#8358;3,500</a>
+      <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;" target="_blank">Join Freemium &#8212; &#8358;3,500</a>
     </div>
   </div>
 </section>
@@ -1259,7 +1259,7 @@
         <div class="inc-item"><div class="inc-dot"></div>Portfolio-ready blog project</div>
         <div class="inc-item"><div class="inc-dot"></div>Instructor Q&amp;A support</div>
       </div>
-      <a class="price-cta" href="https://paystack.com" style="background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); color: #fff; font-weight: 700;" target="_blank">Secure Your Spot!!!</a>
+      <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); color: #fff; font-weight: 700;" target="_blank">Secure Your Spot!!!</a>
     </div>
   </div>
 </section>
@@ -1269,8 +1269,8 @@
 <!-- INSTRUCTOR -->
 <section aria-labelledby="instructor-heading">
   <div class="section-tag">Your Instructor</div>
-  <h2 id="instructor-heading">Taught by a Developer Who Ships Real Products</h2>
-  <p class="section-meta">Not a theorist — an active developer with real projects in production across Nigeria and beyond.</p>
+  <h2 id="instructor-heading">Taught by Developers Who Ships Real Products</h2>
+  <p class="section-meta">Not theorists — active developers with real projects in production across Nigeria and beyond.</p>
 
   <div class="instructor-layout">
     <div class="instructor-left">
@@ -1288,7 +1288,7 @@
       </div>
       <div class="video-cta instructor-cta">
         <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;">Join Freemium — ₦3,500</a>
-        <a class="btn-primary" href="https://paystack.com" target="_blank">Enroll Premium — ₦23,000</a>
+        <a class="btn-primary" href="coming-soon.html" target="_blank">Enroll Premium — ₦23,000</a>
       </div>
       <div class="video-trust">Secure payment via Paystack · Instant access after payment</div>
     </div>
@@ -1348,6 +1348,12 @@
       </button>
       <div class="faq-a">While you can join sessions and follow the theory on a mobile device, a laptop is essential for the practical coding part of this cohort. To build real projects effectively, you will definitely need a laptop.</div>
     </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What exactly am I getting in the Premium Track (₦23,000)? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Most courses stop at the frontend—but we’ll also show you what happens 'under the hood.' With <strong>Python and Django</strong>, you’ll learn how to build the logic and 'brains' of an app that stores information and makes it available when you need it. You’ll create your own database to store blog posts, connect it to your project, and see how everything works together. It’s the professional layer of skill that transforms you into a <strong>Full-Stack Developer</strong>.</div>
+    </div>
   </div>
 </section>
 </main>
@@ -1402,15 +1408,11 @@
       </div>
 
       <!-- CTA -->
-      <a class="spot-cta" href="#paid" id="spotCta">🔥 Enroll Premium — ₦23,000</a>
+      <a class="spot-cta" href="coming-soon.html" id="spotCta">🔥 Enroll Premium — ₦23,000</a>
       <div class="spot-footer">
         <span class="spot-footer-icon">🔒</span>
         Secure payment via Paystack · Only a few spots left
       </div>
-    </div>
-  </div>
-</div>
-
 </div>
 
 <script defer>
@@ -1517,11 +1519,9 @@
     // Show first time after 5-second delay
     setTimeout(showPopup, 5000);
 
-    // Re-trigger popup at random intervals (5-10 mins)
+    // Re-trigger popup every 15 minutes
     function scheduleNextPopup() {
-      const min = 5 * 60 * 1000;
-      const max = 10 * 60 * 1000;
-      const delay = Math.floor(Math.random() * (max - min + 1)) + min;
+      const delay = 15 * 60 * 1000; // 15 mins
       
       setTimeout(function() {
         if (!overlay.classList.contains('active')) {
