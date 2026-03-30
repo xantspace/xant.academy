@@ -166,6 +166,12 @@
       color: var(--ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      user-select: none; /* Protect text from casual highlights */
+    }
+    
+    /* Re-enable selection for critical areas */
+    input, textarea, .faq-a, .inc-item, .price-value {
+      user-select: text;
     }
 
     /* NAV */
@@ -1543,6 +1549,34 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
     });
+  })();
+
+  /* ═══════════════════════════════════════════
+     SOURCE PROTECTION SUITE 🛡️
+     ═══════════════════════════════════════════ */
+  (function() {
+    // Disable Right-Click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable common DevTool shortcuts
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123) { // F12
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
+        return false;
+      }
+      if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U (View Source)
+        return false;
+      }
+    };
+    
+    // Console Warning
+    console.log("%c⚠️ XANT ACADEMY PROTECTION", "color: red; font-size: 24px; font-weight: bold;");
+    console.log("%cUnauthorized source code access or duplication is strictly prohibited. All rights reserved © 2026.", "color: #666; font-size: 14px;");
   })();
 </script>
 

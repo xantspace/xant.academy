@@ -32,7 +32,10 @@
       justify-content: center;
       align-items: center;
       overflow-x: hidden;
+      user-select: none; /* Protect content */
     }
+    
+    input { user-select: text !important; }
 
     /* GRADIENT BG */
     .bg-gradient {
@@ -258,6 +261,8 @@
       <p>Xant Academy Cohort 1 is almost ready. Join the waitlist to get exclusive early access and a 10% discount when we go live.</p>
 
       <form class="waitlist-form" id="waitlistForm">
+      <!-- HONEYPOT: bots fill this, humans don't see it -->
+      <input type="text" name="website" id="honeypot" style="display:none !important; visibility:hidden; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" />
       <input type="email" name="email" placeholder="Enter your email address" required />
       <button type="submit" id="submitBtn">Join Waitlist</button>
     </form>
@@ -303,30 +308,48 @@
 </main>
 
 <script>
-  // --- GOOGLE SHEETS INTEGRATION ---
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwXyZqDVK7UcGBJNWacC60J0nY5po71f0jErK9wHij_Gxqwk8dnmvli8iUinzQTZEZc/exec'; // REPLACE WITH YOUR URL
+  // --- GOOGLE SHEETS INTEGRATION (PROTECTED) ---
+  const _p = ['https://script.google.com/macros/s/',
+              'AKfycbwXyZqDVK7UcGBJNWacC60J0nY5po71f0jErK9wHij_Gxqwk8dnmvli8iUinzQTZEZc',
+              '/exec'];
+  const scriptURL = _p.join('');
   const form = document.getElementById('waitlistForm');
   const submitBtn = document.getElementById('submitBtn');
   const successMsg = document.getElementById('successMsg');
 
+  // PROTECTION: Check if already submitted on this browser
+  if (localStorage.getItem('xant_waitlist_submitted') === 'true') {
+     if (form) form.style.display = 'none';
+     if (successMsg) successMsg.style.display = 'block';
+     if (document.getElementById('backLinkText')) document.getElementById('backLinkText').style.marginTop = '1rem';
+  }
+
   if (form) {
     form.addEventListener('submit', e => {
       e.preventDefault();
+      
+      // PROTECTION: Honeypot check
+      if (document.getElementById('honeypot').value !== '') {
+        console.warn('Bot detected.');
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.innerText = 'Sending...';
 
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
-          console.log('Success!', response);
+          // PROTECTION: Mark as submitted to prevent spam
+          localStorage.setItem('xant_waitlist_submitted', 'true');
+          
           form.style.display = 'none';
           successMsg.style.display = 'block';
-          document.getElementById('backLinkText').style.marginTop = '1rem';
+          if (document.getElementById('backLinkText')) document.getElementById('backLinkText').style.marginTop = '1rem';
         })
         .catch(error => {
-          console.error('Error!', error.message);
           submitBtn.disabled = false;
           submitBtn.innerText = 'Join Waitlist';
-          alert('Something went wrong. Please try again!');
+          alert('Submission failed. Please check your connection!');
         });
     });
   }
@@ -349,8 +372,21 @@
     if(document.getElementById('secs')) document.getElementById('secs').innerText = s.toString().padStart(2, '0');
   }
   
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    /* ═══════════════════════════════════════════
+       SOURCE PROTECTION SUITE 🛡️
+       ═══════════════════════════════════════════ */
+    (function() {
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.onkeydown = function(e) {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+          return false;
+        }
+      };
+      console.log("%c⚠️ XANT ACADEMY PROTECTION", "color: red; font-size: 24px; font-weight: bold;");
+    })();
+  </script>
 </body>
 </html>
