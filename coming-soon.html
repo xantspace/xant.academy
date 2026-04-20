@@ -6,6 +6,11 @@
   <title>Coming Soon | Xant Academy Cohort 1</title>
   <meta name="description" content="Xant Academy Cohort 1 is almost here. Anticipate Nigeria's most practical web dev bootcamp." />
   
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://xant-academy.vercel.app/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://xant-academy.vercel.app/favicon.png" />
+  <link rel="apple-touch-icon" href="https://xant-academy.vercel.app/favicon.png" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -354,8 +359,8 @@
     });
   }
 
-  // Simple countdown logic (7 days from now)
-  const target = new Date().getTime() + (7 * 24 * 60 * 60 * 1000);
+  // Simple countdown logic: Target April 27, 2026
+  const target = new Date('2026-04-27T16:00:00').getTime();
   
   function updateCountdown() {
     const now = new Date().getTime();

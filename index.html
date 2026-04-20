@@ -6,7 +6,7 @@
 
   <!-- PRIMARY META -->
   <title>WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django & Python Online</title>
-  <meta name="description" content="Join WebDev Cohort 1 — Nigeria’s most practical web dev bootcamp. Learn HTML, CSS, Python & Django from scratch. Build real projects, deploy live apps. Early Bird: Freemium ₦3,500 | Premium ₦23,000." />
+  <meta name="description" content="Join WebDev Cohort 1 — Nigeria’s most practical web dev bootcamp. Learn HTML, CSS, Python & Django from scratch. Build real projects, deploy live apps. Early Bird: Freemium ₦5,000 | Premium ₦30,000." />
   <meta name="keywords" content="learn web development Nigeria, Django bootcamp Nigeria, HTML CSS course online, web dev cohort Nigeria, learn Python Nigeria, web development for beginners Nigeria, Xant Academy, Pleasant Johnson web dev" />
   <meta name="author" content="Pleasant Johnson" />
   <meta name="robots" content="index, follow" />
@@ -21,7 +21,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xant-academy.vercel.app/" />
   <meta property="og:title" content="WebDev Cohort 1: Learn to Code & Ship Real Products" />
-  <meta property="og:description" content="Build and deploy a real landing page and blog app in Nigeria's most practical web development bootcamp. ₦3,500 – ₦23,000 slots open now." />
+  <meta property="og:description" content="Build and deploy a real landing page and blog app in Nigeria's most practical web development bootcamp. ₦5,000 – ₦30,000 slots open now." />
   <meta property="og:image" content="https://xant-academy.vercel.app/favicon.png" />
   <meta property="og:image:secure_url" content="https://xant-academy.vercel.app/favicon.png" />
   <meta property="og:image:type" content="image/png" />
@@ -35,7 +35,7 @@
   <meta name="twitter:site" content="@xant_academy" />
   <meta name="twitter:creator" content="@pleasantjohnson" />
   <meta name="twitter:title" content="WebDev Cohort 1: Learn HTML, CSS, Django & Python" />
-  <meta name="twitter:description" content="Build real websites in 3–7 days. Freemium ₦3,500 | Premium ₦23,000." />
+  <meta name="twitter:description" content="Build real websites in 5 days – 1 month. Freemium ₦5,000 | Premium ₦30,000." />
   <meta name="twitter:image" content="https://xant-academy.vercel.app/favicon.png" />
 
   <!-- JSON-LD SCHEMA -->
@@ -53,13 +53,13 @@
       {
         "@type": "Course",
         "name": "Django Blog App Bootcamp Nigeria",
-        "description": "7-day intensive Django bootcamp building a production-ready blog app with Python, CRUD, and Authentication.",
+        "description": "1-month intensive Django bootcamp building a production-ready blog app with Python, CRUD, and Authentication.",
         "provider": { "@type": "Organization", "name": "Xant Academy" },
         "courseMode": "Online - Hybrid",
         "educationalLevel": "Beginner to Intermediate",
         "offers": {
           "@type": "Offer",
-          "price": "23000",
+          "price": "30000",
           "priceCurrency": "NGN",
           "availability": "https://schema.org/InStock"
         }
@@ -67,12 +67,12 @@
       {
         "@type": "Course",
         "name": "HTML & CSS Landing Page Course",
-        "description": "3-day practical course building a responsive landing page from scratch.",
+        "description": "5-day practical course building a responsive landing page from scratch with AI.",
         "provider": { "@type": "Organization", "name": "Xant Academy" },
         "courseMode": "Online - Live",
         "offers": {
           "@type": "Offer",
-          "price": "3500",
+          "price": "5000",
           "priceCurrency": "NGN"
         }
       },
@@ -90,12 +90,12 @@
       {
         "@type": "Course",
         "name": "WebDev Cohort 1 — Premium Track",
-        "description": "A 7-day intensive Django web development bootcamp Nigeria. Build a production blog app with auth, CRUD, and live deployment.",
+        "description": "A 1-month intensive Django web development bootcamp Nigeria. Build a production blog app with auth, CRUD, and live deployment.",
         "provider": { "@type": "Organization", "name": "WebDev Cohort" },
         "instructor": { "@type": "Person", "name": "Pleasant Johnson" },
         "courseMode": ["online", "blended"],
         "inLanguage": "en",
-        "offers": { "@type": "Offer", "price": "50000", "priceCurrency": "NGN" }
+        "offers": { "@type": "Offer", "price": "30000", "priceCurrency": "NGN" }
       },
       {
         "@type": "FAQPage",
@@ -516,7 +516,7 @@
       margin-top: 2rem;
       position: relative;
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 4/3;
       background: var(--ink);
       border-radius: 12px;
       overflow: hidden;
@@ -649,6 +649,7 @@
     .fi-tw    { top: 12%; right: 4%; animation-delay: .3s,  .9s;  animation-duration: .6s, 3.5s; }
     .fi-py    { bottom: 18%; right: 5%; animation-delay: .45s, 1.05s; animation-duration: .6s, 4.6s; }
     .fi-dj    { top: 50%; right: 2%; animation-delay: .6s,  1.2s; animation-duration: .6s, 5s; }
+    .fi-ai    { top: 42%; left: 1.5%; animation-delay: .7s, 1.3s; animation-duration: .6s, 4.8s; }
 
     /* hide on small screens */
     @media (max-width: 760px) { .fi { display: none; } }
@@ -1059,7 +1060,7 @@
 <header>
   <nav aria-label="Main navigation">
     <a class="nav-logo" href="#" aria-label="WebDev Cohort Home"><span>Web</span>Dev Cohort</a>
-    <a class="nav-cta" href="#paid" aria-label="Enroll in Premium track for ₦25,000">Enroll — ₦25,000</a>
+    <a class="nav-cta" href="#paid" aria-label="Enroll in Premium track for ₦30,000">Enroll — ₦30,000</a>
   </nav>
   <!-- Timer outside nav to avoid backdrop-filter/clipping issues on mobile -->
   <div class="mini-timer" id="miniTimer">
@@ -1093,6 +1094,10 @@
       <i class="devicon-django-plain" style="color:#092e20"></i>
       <span>Django</span>
     </div>
+    <div class="fi fi-ai">
+      <img src="ai-logo.png" alt="AI Tools" style="width: 2.4rem; height: 2.4rem; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));">
+      <span>AI Tools</span>
+    </div>
   </div>
 
   <div class="badge" aria-label="Cohort status">Cohort 1 · Limited Spots Available</div>
@@ -1102,20 +1107,20 @@
     Build real projects and deploy live apps using the same tools professionals use in 2025.
   </p>
   <div class="hero-btns">
-    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join the Freemium HTML CSS course for ₦3,500">Join Freemium — ₦3,500</a>
-    <a class="btn-primary" href="#paid" aria-label="Enroll in the Premium Django bootcamp for ₦23,000">Enroll in Premium Class — ₦23,000</a>
+    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join the Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
+    <a class="btn-primary" href="#paid" aria-label="Enroll in the Premium Django bootcamp for ₦30,000">Enroll in Premium Class — ₦30,000</a>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats" aria-label="Course statistics">
   <div class="stat">
-    <div class="stat-num" aria-label="3 days">3</div>
+    <div class="stat-num" aria-label="5 days">5</div>
     <div class="stat-label">Days — Freemium Track</div>
   </div>
   <div class="stat">
-    <div class="stat-num" aria-label="7 days">7</div>
-    <div class="stat-label">Days — Premium Track</div>
+    <div class="stat-num" aria-label="1 month">1</div>
+    <div class="stat-label">Month — Premium Track</div>
   </div>
   <div class="stat">
     <div class="stat-num" aria-label="2 projects">2</div>
@@ -1131,59 +1136,66 @@
 
 <!-- FREE TRACK -->
 <section id="free" aria-labelledby="free-heading">
-  <div class="section-tag">Freemium · 3 Days</div>
-  <h2 id="free-heading">HTML &amp; CSS Landing Page Course</h2>
-  <p class="section-meta">Learn web development Nigeria-style — build and deploy a real landing page from scratch for just ₦5,000. No prerequisites needed.</p>
+  <div class="section-tag">Freemium · 1 Week (5 Days)</div>
+  <h2 id="free-heading">AI-Powered Web Dev Fundamentals</h2>
+  <p class="section-meta">Learn web development, build and deploy a real landing page from scratch with AI for just ₦5,000. No prerequisites needed.</p>
 
   <div class="premium-layout">
     <div class="days">
       <div class="day-card">
         <div class="day-num">Day 1</div>
         <div>
-          <div class="day-title">Setup + HTML Structure</div>
-          <div class="day-desc">Install Acode (mobile) / VS Code (PC), semantic tags, sections, navigation, full page skeleton.</div>
+          <div class="day-title">Setup + HTML Fundamentals</div>
+          <div class="day-desc">Install Acode on Android/PC. Web dev intro. HTML structure: tags, elements, attributes. Build a personal bio page.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">Day 2</div>
         <div>
-          <div class="day-title">CSS Styling</div>
-          <div class="day-desc">Flexbox, colors, typography, hero section, card layouts — styled in Acode or VS Code.</div>
+          <div class="day-title">CSS Styling Basics</div>
+          <div class="day-desc">Link CSS to HTML. Colors, fonts, spacing, backgrounds. Box model (margin, padding, border). Style your bio page.</div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-num">Day 3</div>
         <div>
-          <div class="day-title">Polish + Deploy</div>
-          <div class="day-desc">Mobile responsiveness, final touches, deploy live on GitHub Pages, Vercel or Netlify</div>
+          <div class="day-title">Build Landing Page with AI</div>
+          <div class="day-desc">Intro to ChatGPT/Claude/Gemini. Prompt engineering basics. Build hero section & CTA with AI. Mobile-friendly customization.</div>
         </div>
       </div>
       <div class="day-card">
-        <div class="day-num">Outcome</div>
+        <div class="day-num">Day 4</div>
         <div>
-          <div class="day-title">What You'll Build</div>
-          <div class="day-desc">A fully responsive, live landing page — built from your phone or PC.</div>
+          <div class="day-title">Add Features with AI + Deploy</div>
+          <div class="day-desc">AI prompt for contact forms. Debugging with AI. Intro to Netlify Drop for instant live deployment.</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-num">Day 5</div>
+        <div>
+          <div class="day-title">Portfolio Project + Workflows</div>
+          <div class="day-desc">Scaffold entire project with AI. Organizing files. Final showcase: share your live site with the group.</div>
         </div>
       </div>
     </div>
 
     <!-- FREEMIUM PRICE BOX -->
     <div class="price-box">
-      <div class="promo-sticker">SAVE 30% OFF</div>
+      <div class="promo-sticker">SAVE 20% OFF</div>
       <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">🔥 Early Bird Offer</div>
       <div class="price-amount">
-        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">&#8358;5,000</span>
-        &#8358;3,500
+        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">&#8358;6,500</span>
+        &#8358;5,000
       </div>
       <div class="price-period" style="font-weight: 600; color: #fff;">For the first 100 people only</div>
-      <div class="price-period">One-time payment · 3-Day Intensive</div>
+      <div class="price-period">One-time payment · 5-Day Intensive</div>
       <div class="price-includes">
-        <div class="inc-item"><div class="inc-dot"></div>3 days of live sessions</div>
-        <div class="inc-item"><div class="inc-dot"></div>Recording access via Google Drive</div>
-        <div class="inc-item"><div class="inc-dot"></div>Deployed landing page project</div>
+        <div class="inc-item"><div class="inc-dot"></div>5 days of live sessions</div>
+        <div class="inc-item"><div class="inc-dot"></div>AI Prompt Engineering Guide</div>
+        <div class="inc-item"><div class="inc-dot"></div>Deployed Landing Page Project</div>
         <div class="inc-item"><div class="inc-dot"></div>Path to Premium track</div>
       </div>
-      <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;" target="_blank">Join Freemium &#8212; &#8358;3,500</a>
+      <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;" target="_blank">Join Freemium &#8212; &#8358;5,000</a>
     </div>
   </div>
 </section>
@@ -1192,59 +1204,38 @@
 
 <!-- PAID TRACK -->
 <section id="paid" aria-labelledby="paid-heading">
-  <div class="section-tag">Premium · 1 Week</div>
-  <h2 id="paid-heading">Django Blog App Bootcamp Nigeria</h2>
-  <p class="section-meta">Nigeria’s most hands-on <strong>Django course</strong> — build a production-ready blog app with authentication, full CRUD, AI-assisted design, and live deployment. Learn Python web development the right way.</p>
+  <div class="section-tag">Premium · 1 Month</div>
+  <h2 id="paid-heading">Full-Stack Django &amp; AI Integration</h2>
+  <p class="section-meta">Nigeria’s most hands-on <strong>Django course</strong> — build a production-ready blog app with authentication, full CRUD, AI-assisted design, and live deployment. 1 month of structured learning.</p>
 
   <div class="premium-layout">
     <div class="days">
       <div class="day-card">
-        <div class="day-num">Day 1</div>
+        <div class="day-num">Week 1</div>
         <div>
-          <div class="day-title">Python Basics Refresher</div>
-          <div class="day-desc">Syntax, functions, OOP basics needed for Django.</div>
+          <div class="day-title">Python for Web Mastery</div>
+          <div class="day-desc">Deep dive into logic, data types, and OOP basics specifically for Django developers.</div>
         </div>
       </div>
       <div class="day-card">
-        <div class="day-num">Day 2</div>
+        <div class="day-num">Week 2</div>
         <div>
-          <div class="day-title">Django Setup + Project Structure</div>
-          <div class="day-desc">Environment (Google IDX), URL routing, first view.</div>
+          <div class="day-title">Django Core & Architecture</div>
+          <div class="day-desc">Project setup, apps, URL routing, and mapping views to beautiful HTML templates.</div>
         </div>
       </div>
       <div class="day-card">
-        <div class="day-num">Day 3</div>
+        <div class="day-num">Week 3</div>
         <div>
-          <div class="day-title">Models + Database</div>
-          <div class="day-desc">Define blog model, run migrations, explore admin.</div>
+          <div class="day-title">Models, Database & CRUD</div>
+          <div class="day-desc">Design the Blog database. Build Create, Read, Update, and Delete features with AI assistance.</div>
         </div>
       </div>
       <div class="day-card">
-        <div class="day-num">Day 4</div>
+        <div class="day-num">Week 4</div>
         <div>
-          <div class="day-title">Templates + Rendering</div>
-          <div class="day-desc">Dynamic posts with template inheritance and context.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">Day 5</div>
-        <div>
-          <div class="day-title">Full CRUD Operations</div>
-          <div class="day-desc">Create, edit, delete with proper forms end-to-end.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">Day 6</div>
-        <div>
-          <div class="day-title">User Authentication</div>
-          <div class="day-desc">Signup, login, protect routes for post creation/editing.</div>
-        </div>
-      </div>
-      <div class="day-card">
-        <div class="day-num">Day 7</div>
-        <div>
-          <div class="day-title">AI Design + Deployment</div>
-          <div class="day-desc">Stitch AI for frontend styling, then deploy live from Google IDX.</div>
+          <div class="day-title">Auth, SEO & Final Deployment</div>
+          <div class="day-desc">User accounts, profile management, SEO best practices, and pushing to production servers.</div>
         </div>
       </div>
     </div>
@@ -1254,16 +1245,16 @@
       <div class="promo-sticker-red">FLASH SALE</div>
       <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">🚀 Flash Sale</div>
       <div class="price-amount">
-        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">₦25,000</span>
-        ₦23,000
+        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">₦45,000</span>
+        ₦30,000
       </div>
       <div class="price-period" style="font-weight: 600; color: #fff;">For the first 50 people only</div>
-      <div class="price-period">One-time payment · Hybrid (Live Sessions + Recordings)</div>
+      <div class="price-period">One-month payment · Hybrid (Live Sessions + Recordings)</div>
       <div class="price-includes">
-        <div class="inc-item"><div class="inc-dot"></div>7 days of live sessions</div>
+        <div class="inc-item"><div class="inc-dot"></div>4 weeks of live structured sessions</div>
         <div class="inc-item"><div class="inc-dot"></div>Lifetime recording access via Google Drive</div>
-        <div class="inc-item"><div class="inc-dot"></div>Portfolio-ready blog project</div>
-        <div class="inc-item"><div class="inc-dot"></div>Instructor Q&amp;A support</div>
+        <div class="inc-item"><div class="inc-dot"></div>Production-ready full-stack blog project</div>
+        <div class="inc-item"><div class="inc-dot"></div>Exclusive AI Web Dev Workflow Guide</div>
       </div>
       <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); color: #fff; font-weight: 700;" target="_blank">Secure Your Spot!!!</a>
     </div>
@@ -1293,23 +1284,17 @@
         </div>
       </div>
       <div class="video-cta instructor-cta">
-        <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;">Join Freemium — ₦3,500</a>
-        <a class="btn-primary" href="coming-soon.html" target="_blank">Enroll Premium — ₦23,000</a>
+        <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;">Join Freemium — ₦5,000</a>
+        <a class="btn-primary" href="coming-soon.html" target="_blank">Enroll Premium — ₦30,000</a>
       </div>
       <div class="video-trust">Secure payment via Paystack · Instant access after payment</div>
     </div>
 
     <div class="instructor-right">
-      <!-- VIDEO SECTION -->
+      <!-- INSTRUCTOR IMAGE -->
       <div class="video-container" id="videoBox">
-        <video id="introVideo" preload="metadata">
-          <source src="baal.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
-          <div class="play-icon">▶</div>
-          <div class="video-overlay-label">Watch: Meet Your Instructor</div>
-        </div>
-        <div class="video-title">Introduction — Pleasant Johnson</div>
+        <img src="instructor.png" alt="Instructor Pleasant Johnson" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="video-title">Lead Instructor — Pleasant Johnson</div>
       </div>
     </div>
   </div>
@@ -1362,9 +1347,9 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What exactly am I getting in the Premium Track (₦23,000)? <span class="faq-icon">+</span>
+        What exactly am I getting in the Premium Track (₦30,000)? <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">Most courses stop at the frontend—but we’ll also show you what happens 'under the hood.' With <strong>Python and Django</strong>, you’ll learn how to build the logic and 'brains' of an app that stores information and makes it available when you need it. You’ll create your own database to store blog posts, connect it to your project, and see how everything works together. It’s the professional layer of skill that transforms you into a <strong>Full-Stack Developer</strong>.</div>
+      <div class="faq-a">Most courses stop at the frontend—but we’ll also show you what happens 'under the hood.' Over a full month, we explore <strong>Python and Django</strong> in depth. You’ll learn how to build the logic and 'brains' of an app that stores information and makes it available when you need it. You’ll create your own database to store blog posts, connect it to your project, and see how everything works together. It’s the professional layer of skill that transforms you into a <strong>Full-Stack Developer</strong>.</div>
     </div>
   </div>
 </section>
@@ -1375,8 +1360,8 @@
   <h2 style="margin-bottom:.75rem">Ready to Start Building Websites in Nigeria?</h2>
   <p style="font-size:14px;color:#6b6b68;margin-bottom:2rem">Join WebDev Cohort 1 before spots fill up. Learn HTML, CSS, Python &amp; Django today.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join Freemium HTML CSS course for ₦3,500">Join Freemium — ₦3,500</a>
-    <a class="btn-primary" href="#paid" aria-label="Enroll in Premium Django bootcamp for ₦23,000">Enroll — ₦23,000</a>
+    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
+    <a class="btn-primary" href="#paid" aria-label="Enroll in Premium Django bootcamp for ₦30,000">Enroll — ₦30,000</a>
   </div>
 </section>
 
@@ -1404,6 +1389,11 @@
       <!-- TIMER -->
       <div class="spot-timer" aria-label="Countdown timer">
         <div class="spot-timer-unit">
+          <div class="spot-timer-num" id="spotDays">00</div>
+          <span class="spot-timer-label">Days</span>
+        </div>
+        <div class="spot-timer-sep">:</div>
+        <div class="spot-timer-unit">
           <div class="spot-timer-num" id="spotHours">00</div>
           <span class="spot-timer-label">Hours</span>
         </div>
@@ -1420,12 +1410,14 @@
       </div>
 
       <!-- CTA -->
-      <a class="spot-cta" href="coming-soon.html" id="spotCta">🔥 Enroll Premium — ₦23,000</a>
+      <a class="spot-cta" href="coming-soon.html" id="spotCta">🔥 Join Freemium — ₦5,000</a>
       <div class="spot-footer">
         <span class="spot-footer-icon">🔒</span>
         Secure payment via Paystack · Only a few spots left
       </div>
-</div>
+    </div> <!-- End spot-body -->
+  </div> <!-- End spot-card -->
+</div> <!-- End spot-overlay -->
 
 <script defer>
   function toggleFaq(btn) {
@@ -1441,13 +1433,7 @@
     }
   }
 
-  function playVideo() {
-    const video = document.getElementById('introVideo');
-    const overlay = document.getElementById('videoOverlay');
-    overlay.classList.add('hidden');
-    video.controls = true;
-    video.play();
-  }
+
 
   /* ═══════════════════════════════════════════
      SECURE YOUR SPOT — POPUP LOGIC
@@ -1456,6 +1442,7 @@
     const overlay   = document.getElementById('spotOverlay');
     const dismiss   = document.getElementById('spotDismiss');
     const ctaBtn    = document.getElementById('spotCta');
+    const daysEl    = document.getElementById('spotDays');
     const hrsEl     = document.getElementById('spotHours');
     const minsEl    = document.getElementById('spotMinutes');
     const secsEl    = document.getElementById('spotSeconds');
@@ -1465,7 +1452,7 @@
     const miniTime  = document.getElementById('miniTime');
 
     // Total countdown: 94-hour fixed deadline (Synced for everyone)
-    const targetDate = new Date('2026-04-02T16:00:00').getTime();
+    const targetDate = new Date('2026-04-27T16:00:00').getTime();
     let timerInterval;
 
     function pad(n) { return n < 10 ? '0' + n : n; }
@@ -1483,19 +1470,20 @@
         return;
       }
       
-      const h = Math.floor(distance / (1000 * 60 * 60));
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const s = Math.floor((distance % (1000 * 60)) / 1000);
       
       // Update popup timer components
+      if (daysEl) daysEl.textContent = pad(d);
       if (hrsEl) hrsEl.textContent = pad(h);
       if (minsEl) minsEl.textContent = pad(m);
       if (secsEl) secsEl.textContent = pad(s);
       
       // Update mini persistent timer
-      // On the mini timer, we show H:M:S if hours exist
       if (miniTime) {
-        miniTime.textContent = (h > 0 ? h + ':' : '') + pad(m) + ':' + pad(s);
+        miniTime.textContent = d + 'd : ' + pad(h) + 'h : ' + pad(m) + 'm : ' + pad(s) + 's';
       }
     }
 
