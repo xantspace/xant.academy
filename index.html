@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- PRIMARY META -->
-  <title>WebDev Cohort 1 Nigeria | Learn HTML, CSS, Django & Python Online</title>
-  <meta name="description" content="Join WebDev Cohort 1 — Nigeria’s most practical web dev bootcamp. Learn HTML, CSS, Python & Django from scratch. Build real projects, deploy live apps. Early Bird: Freemium ₦5,000 | Premium ₦30,000." />
-  <meta name="keywords" content="learn web development Nigeria, Django bootcamp Nigeria, HTML CSS course online, web dev cohort Nigeria, learn Python Nigeria, web development for beginners Nigeria, Xant Academy, Pleasant Johnson web dev" />
+  <title>XantAcademy | Official Web Development Cohort</title>
+  <meta name="description" content="XantAcademy Cohort 1 is launching institutional partnerships. Nigeria's most practical web dev bootcamp now accessible at a subsidized student rate." />
+  <meta name="keywords" content="learn web development Nigeria, Django bootcamp Nigeria, HTML CSS course online, web dev cohort Nigeria, learn Python Nigeria, web development for beginners Nigeria, XantAcademy, Pleasant Johnson web dev" />
   <meta name="author" content="Pleasant Johnson" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://xant-academy.vercel.app/" />
@@ -21,13 +21,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xant-academy.vercel.app/" />
   <meta property="og:title" content="WebDev Cohort 1: Learn to Code & Ship Real Products" />
-  <meta property="og:description" content="Build and deploy a real landing page and blog app in Nigeria's most practical web development bootcamp. ₦5,000 – ₦30,000 slots open now." />
+  <meta property="og:description" content="Build and deploy a real landing page and blog app. Subsidized institutional student rates: ₦5,000 – ₦30,000 slots open." />
   <meta property="og:image" content="https://xant-academy.vercel.app/favicon.png" />
   <meta property="og:image:secure_url" content="https://xant-academy.vercel.app/favicon.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Xant Academy WebDev Cohort" />
+  <meta property="og:site_name" content="XantAcademy WebDev Cohort" />
   <meta property="og:locale" content="en_NG" />
 
   <!-- TWITTER CARD -->
@@ -35,7 +35,7 @@
   <meta name="twitter:site" content="@xant_academy" />
   <meta name="twitter:creator" content="@pleasantjohnson" />
   <meta name="twitter:title" content="WebDev Cohort 1: Learn HTML, CSS, Django & Python" />
-  <meta name="twitter:description" content="Build real websites in 5 days – 1 month. Freemium ₦5,000 | Premium ₦30,000." />
+  <meta name="twitter:description" content="Build real websites in 5 days – 1 month. Standard (Institutional Rate) ₦5,000 | Intensive ₦30,000." />
   <meta name="twitter:image" content="https://xant-academy.vercel.app/favicon.png" />
 
   <!-- JSON-LD SCHEMA -->
@@ -45,7 +45,7 @@
     "@graph": [
       {
         "@type": "Organization",
-        "name": "Xant Academy",
+        "name": "XantAcademy",
         "url": "https://xant-academy.vercel.app/",
         "logo": "https://xant-academy.vercel.app/favicon.png",
         "sameAs": ["https://twitter.com/xant_academy"]
@@ -54,7 +54,7 @@
         "@type": "Course",
         "name": "Django Blog App Bootcamp Nigeria",
         "description": "1-month intensive Django bootcamp building a production-ready blog app with Python, CRUD, and Authentication.",
-        "provider": { "@type": "Organization", "name": "Xant Academy" },
+        "provider": { "@type": "Organization", "name": "XantAcademy" },
         "courseMode": "Online - Hybrid",
         "educationalLevel": "Beginner to Intermediate",
         "offers": {
@@ -68,7 +68,7 @@
         "@type": "Course",
         "name": "HTML & CSS Landing Page Course",
         "description": "5-day practical course building a responsive landing page from scratch with AI.",
-        "provider": { "@type": "Organization", "name": "Xant Academy" },
+        "provider": { "@type": "Organization", "name": "XantAcademy" },
         "courseMode": "Online - Live",
         "offers": {
           "@type": "Offer",
@@ -115,6 +115,9 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <link href="https://fonts.cdnfonts.com/css/quantify" rel="stylesheet">
+  
+  <!-- LUCIDE ICONS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -193,6 +196,13 @@
       text-decoration: none;
     }
     .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-link {
+      text-decoration: none; color: var(--ink-2);
+      font-size: 14px; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-link:hover { color: var(--green); }
     .nav-cta {
       background: var(--green);
       color: #fff;
@@ -206,6 +216,10 @@
       transition: background .2s;
     }
     .nav-cta:hover { background: var(--green-mid); }
+
+    @media (max-width: 600px) {
+      .nav-links .nav-link { display: none; }
+    }
 
     /* HERO */
     .hero {
@@ -474,6 +488,54 @@
     }
     .tutor-badge:hover { opacity: 1; }
 
+    /* EXPANDING CARDS (MOBILE & TABLET) */
+    .expanding-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      width: 100%;
+      height: 380px;
+      margin-top: 1.5rem;
+    }
+    .expanding-card {
+      position: relative;
+      flex: 1;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      transition: flex 0.6s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    }
+    .expanding-card.active {
+      flex: 5;
+    }
+    .expanding-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .expanding-card .card-title {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      color: #fff;
+      background: rgba(4, 52, 44, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease 0.2s;
+      white-space: nowrap;
+    }
+    .expanding-card.active .card-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* FAQ */
     .faq { display: flex; flex-direction: column; gap: 1px; margin-top: 1.5rem; }
     .faq-item {
@@ -739,6 +801,61 @@
       .tutor-card { margin-top: 0; }
       .video-container { margin-top: 0; }
       .instructor-cta { margin-top: 1rem; }
+      .instructor-right {
+        position: sticky;
+        top: 100px;
+      }
+      .expanding-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1.25rem;
+        height: 550px;
+        width: 100%;
+        margin-top: 0;
+      }
+      .expanding-card {
+        position: relative;
+        flex: 1;
+        height: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: flex 0.7s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        border: 1px solid var(--border);
+      }
+      .expanding-card.active {
+        flex: 4;
+      }
+      .expanding-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .expanding-card:hover img {
+        transform: scale(1.05);
+      }
+      .expanding-card .card-title {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        color: #fff;
+        background: rgba(4, 52, 44, 0.85);
+        backdrop-filter: blur(8px);
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.4s ease 0.3s;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .expanding-card.active .card-title {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       /* FAQ — 2 COLUMNS */
       .faq {
@@ -1055,13 +1172,14 @@
 
     @media (min-width: 761px) {
       .mini-timer {
-        top: 13px;
-        right: 210px; /* Positioned to the left of the Enroll button */
-        transform: translateY(-10px);
-        background: var(--green-pale);
+        bottom: 30px;
+        right: 30px;
+        font-size: 14px;
+        background: var(--white);
+        transform: translateX(40px);
       }
       .mini-timer.active {
-        transform: translateY(0);
+        transform: translateX(0);
       }
     }
   </style>
@@ -1071,8 +1189,12 @@
 <!-- NAV -->
 <header>
   <nav aria-label="Main navigation">
-    <a class="nav-logo" href="#" aria-label="WebDev Cohort Home"><span>Web</span>Dev Cohort</a>
-    <a class="nav-cta" href="#paid" aria-label="Enroll in Premium track for ₦30,000">Enroll — ₦30,000</a>
+    <a class="nav-logo" href="index.html" aria-label="XantAcademy Home">Xant<span>Academy</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a class="nav-cta" href="checkout.html" aria-label="Enroll in Premium track for ₦30,000">Enroll — ₦30,000</a>
+    </div>
   </nav>
   <!-- Timer outside nav to avoid backdrop-filter/clipping issues on mobile -->
   <div class="mini-timer" id="miniTimer">
@@ -1112,15 +1234,14 @@
     </div>
   </div>
 
-  <div class="badge" aria-label="Cohort status">Cohort 1 · Limited Spots Available</div>
-  <h1 id="hero-heading">Learn Web Development with XantSpace<br><em>Start Freemium. Go Pro.</em></h1>
+  <div class="badge" aria-label="Cohort status">2026 Admissions Open · Official Enrollment</div>
+  <h1 id="hero-heading">Master Modern Web Development at<br><em>XantAcademy</em></h1>
   <p class="hero-sub">
-    Master <strong>HTML, CSS, Python &amp; Django</strong> from scratch — Nigeria’s most practical web dev bootcamp.
-    Build real projects and deploy live apps using the same tools professionals use in 2025.
+    We deliver high-impact, industry-standard training. Build live production systems and master the modern development workflow used by world-class engineers.
   </p>
   <div class="hero-btns">
-    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join the Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
-    <a class="btn-primary" href="#paid" aria-label="Enroll in the Premium Django bootcamp for ₦30,000">Enroll in Premium Class — ₦30,000</a>
+    <a class="btn-outline" href="checkout.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Register for the Standard track">Register Standard — ₦5,000</a>
+    <a class="btn-primary" href="checkout.html" aria-label="Enroll in the Intensive track">Enroll Intensive — ₦30,000</a>
   </div>
 </section>
 
@@ -1128,11 +1249,11 @@
 <div class="stats" aria-label="Course statistics">
   <div class="stat">
     <div class="stat-num" aria-label="5 days">5</div>
-    <div class="stat-label">Days — Freemium Track</div>
+    <div class="stat-label">Days — Standard Track</div>
   </div>
   <div class="stat">
     <div class="stat-num" aria-label="1 month">1</div>
-    <div class="stat-label">Month — Premium Track</div>
+    <div class="stat-label">Month — Intensive Track</div>
   </div>
   <div class="stat">
     <div class="stat-num" aria-label="2 projects">2</div>
@@ -1148,9 +1269,9 @@
 
 <!-- FREE TRACK -->
 <section id="free" aria-labelledby="free-heading">
-  <div class="section-tag">Freemium · 1 Week (5 Days)</div>
+  <div class="section-tag">Standard · 1 Week (5 Days)</div>
   <h2 id="free-heading">AI-Powered Web Dev Fundamentals</h2>
-  <p class="section-meta">Learn web development, build and deploy a real landing page from scratch with AI for just ₦5,000. No prerequisites needed.</p>
+  <p class="section-meta">Learn web development, build and deploy a real landing page from scratch with AI for just ₦5,000. Institutional Partnership access available for select Nigerian campuses.</p>
 
   <div class="premium-layout">
     <div class="days">
@@ -1193,21 +1314,23 @@
 
     <!-- FREEMIUM PRICE BOX -->
     <div class="price-box">
-      <div class="promo-sticker">SAVE 20% OFF</div>
-      <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">🔥 Early Bird Offer</div>
+      <div class="promo-sticker">SAVE 50% OFF</div>
+      <div style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">
+        <i data-lucide="flame" style="width: 14px; height: 14px;"></i> Early Bird Offer
+      </div>
       <div class="price-amount">
-        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">&#8358;6,500</span>
+        <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">&#8358;10,000</span>
         &#8358;5,000
       </div>
       <div class="price-period" style="font-weight: 600; color: #fff;">For the first 100 people only</div>
       <div class="price-period">One-time payment · 5-Day Intensive</div>
       <div class="price-includes">
-        <div class="inc-item"><div class="inc-dot"></div>5 days of live sessions</div>
-        <div class="inc-item"><div class="inc-dot"></div>AI Prompt Engineering Guide</div>
-        <div class="inc-item"><div class="inc-dot"></div>Deployed Landing Page Project</div>
-        <div class="inc-item"><div class="inc-dot"></div>Path to Premium track</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> 5 days of live sessions</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> AI Prompt Engineering Guide</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> Deployed Landing Page Project</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> Path to Premium track</div>
       </div>
-      <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;" target="_blank">Join Freemium &#8212; &#8358;5,000</a>
+      <a class="price-cta" href="checkout.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); color: #04342C; font-weight: 700;">Join Standard &#8212; &#8358;5,000</a>
     </div>
   </div>
 </section>
@@ -1216,7 +1339,7 @@
 
 <!-- PAID TRACK -->
 <section id="paid" aria-labelledby="paid-heading">
-  <div class="section-tag">Premium · 1 Month</div>
+  <div class="section-tag">Intensive (Premium) · 1 Month</div>
   <h2 id="paid-heading">Full-Stack Django &amp; AI Integration</h2>
   <p class="section-meta">Nigeria’s most hands-on <strong>Django course</strong> — build a production-ready blog app with authentication, full CRUD, AI-assisted design, and live deployment. 1 month of structured learning.</p>
 
@@ -1255,7 +1378,9 @@
     <!-- PRICE BOX -->
     <div class="price-box">
       <div class="promo-sticker-red">FLASH SALE</div>
-      <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">🚀 Flash Sale</div>
+      <div style="display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--green-light); letter-spacing: 1px; margin-bottom: 8px;">
+        <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Flash Sale
+      </div>
       <div class="price-amount">
         <span style="font-size: 0.5em; text-decoration: line-through; opacity: 0.5; margin-right: 12px;">₦45,000</span>
         ₦30,000
@@ -1263,12 +1388,12 @@
       <div class="price-period" style="font-weight: 600; color: #fff;">For the first 50 people only</div>
       <div class="price-period">One-month payment · Hybrid (Live Sessions + Recordings)</div>
       <div class="price-includes">
-        <div class="inc-item"><div class="inc-dot"></div>4 weeks of live structured sessions</div>
-        <div class="inc-item"><div class="inc-dot"></div>Lifetime recording access via Google Drive</div>
-        <div class="inc-item"><div class="inc-dot"></div>Production-ready full-stack blog project</div>
-        <div class="inc-item"><div class="inc-dot"></div>Exclusive AI Web Dev Workflow Guide</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> 4 weeks of live structured sessions</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> Lifetime recording access via Google Drive</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> Production-ready full-stack blog project</div>
+        <div class="inc-item"><i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: var(--green-light);"></i> Exclusive AI Web Dev Workflow Guide</div>
       </div>
-      <a class="price-cta" href="coming-soon.html" style="background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); color: #fff; font-weight: 700;" target="_blank">Secure Your Spot!!!</a>
+      <a class="price-cta" href="checkout.html" style="background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%); color: #fff; font-weight: 700;">Secure Your Spot!!!</a>
     </div>
   </div>
 </section>
@@ -1277,9 +1402,9 @@
 
 <!-- INSTRUCTOR -->
 <section aria-labelledby="instructor-heading">
-  <div class="section-tag">Your Instructor</div>
-  <h2 id="instructor-heading">Taught by Developers Who Ships Real Products</h2>
-  <p class="section-meta">Not theorists — active developers with real projects in production across Nigeria and beyond.</p>
+  <div class="section-tag">Program Faculty</div>
+  <h2 id="instructor-heading">Guided by Industry Professionals</h2>
+  <p class="section-meta">Our faculty is comprised of active engineers building live systems in the global tech ecosystem.</p>
 
   <div class="instructor-layout">
     <div class="instructor-left">
@@ -1287,30 +1412,57 @@
         <div class="avatar" aria-label="Initials of instructor Pleasant Johnson">PJ</div>
         <div class="tutor-comment-wrap">
           <div class="tutor-info">
-            <div class="tutor-name">Mr. Pleasant Johnson</div>
-            <div class="tutor-bio">Django developer and <strong>web dev instructor in Nigeria</strong> with hands-on experience building production-ready web apps. Among the Top Winners of TechRise Cohort 2 <br> Best Graduate — Web Development with Python.</div>
+            <div class="tutor-name">Pleasant Johnson</div>
+            <div class="tutor-bio">Lead Technical Tutor and Django Developer with extensive experience in architecting production systems. Recognized industry professional with a record of technical excellence in Python-based web development.</div>
           </div>
           <div>
             <span class="tutor-badge">TechRise Best Graduate · Web Dev with Python</span>
           </div>
         </div>
       </div>
+
       <div class="video-cta instructor-cta">
-        <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;">Join Freemium — ₦5,000</a>
-        <a class="btn-primary" href="coming-soon.html" target="_blank">Enroll Premium — ₦30,000</a>
+        <a class="btn-outline" href="checkout.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;">Join Standard — ₦5,000</a>
+        <a class="btn-primary" href="checkout.html">Enroll Intensive — ₦30,000</a>
       </div>
       <div class="video-trust">Secure payment via Paystack · Instant access after payment</div>
     </div>
 
     <div class="instructor-right">
-      <!-- INSTRUCTOR IMAGE -->
-      <div class="video-container" id="videoBox">
-        <img src="instructor.png" alt="Instructor Pleasant Johnson" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="video-title">Lead Instructor — Pleasant Johnson</div>
+      <div class="expanding-container">
+        <div class="expanding-card active" onclick="activateCard(this)">
+          <img src="instructor.png" alt="Lead Tutor Pleasant Johnson">
+          <div class="card-title">Lead Tutor — Pleasant Johnson</div>
+        </div>
+        <div class="expanding-card" onclick="activateCard(this)">
+          <img src="instructor_2.png" alt="Technical Workflow View">
+          <div class="card-title">Advanced Django Workflow</div>
+        </div>
       </div>
     </div>
   </div>
 
+</section>
+
+<hr class="divider" />
+
+<!-- ECOSYSTEM PREVIEW -->
+<section style="padding: 6rem 2rem; background: var(--white); text-align: center;">
+  <div class="section-tag">The XantAcademy Ecosystem</div>
+  <h2 style="font-family: 'Quantify'; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem; color: var(--green-dark);">Beyond Just Code</h2>
+  <p class="section-meta" style="max-width: 700px; margin: 0 auto 3rem;">We are scaling to include industry-standard tracks in UI/UX and Graphic Design, powered by the same AI-driven methodology you know and trust.</p>
+  
+  <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+    <a href="about.html#disciplines" class="btn-outline" style="display: flex; align-items: center; gap: 10px;">
+      <i data-lucide="layout"></i> UI/UX Design
+    </a>
+    <a href="about.html#disciplines" class="btn-outline" style="display: flex; align-items: center; gap: 10px;">
+      <i data-lucide="palette"></i> Graphic Design
+    </a>
+    <a href="about.html" class="btn-primary" style="display: flex; align-items: center; gap: 10px;">
+      Explore Ecosystem <i data-lucide="arrow-right"></i>
+    </a>
+  </div>
 </section>
 
 <hr class="divider" />
@@ -1323,43 +1475,43 @@
   <div class="faq">
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        Do I need prior experience? <span class="faq-icon">+</span>
+        Do I need prior experience? <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
-      <div class="faq-a">No. The freemium track starts from zero. For the premium track, completing the freemium class first is recommended but not required.</div>
+      <div class="faq-a">No. The Standard (School Rate) track starts from zero. For the Intensive (Premium) track, completing the standard class first is recommended but not required.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What tools do I need? <span class="faq-icon">+</span>
+        What tools do I need? <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
       <div class="faq-a">Just a laptop and a stable internet connection. No complex local setup required.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        How do I access recordings? <span class="faq-icon">+</span>
+        How do I access recordings? <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
       <div class="faq-a">All session recordings are uploaded to a shared Google Drive folder organised by day. You get lifetime access after payment confirmation.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        How do I pay? <span class="faq-icon">+</span>
+        How do I pay? <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
       <div class="faq-a">Via Paystack — supports cards, bank transfer, and USSD. Payment confirmation is instant and your Telegram invite link is sent immediately after.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-        Can I use a mobile phone for this coding course? <span class="faq-icon" aria-hidden="true">+</span>
+        Can I use a mobile phone for this coding course? <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
       <div class="faq-a">While you can join sessions and follow the theory on a mobile device, a laptop is essential for the practical coding part of this cohort. To build real projects effectively, you will definitely need a laptop.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        HTML & CSS: Building and styling websites <span class="faq-icon">+</span>
+        HTML & CSS: Building and styling websites <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
       <div class="faq-a">With HTML you’ll structure content, and with CSS you’ll shape its look and feel. You’ll design layouts, add colours and typography, and make your pages responsive so they look great on any device. This is where your ideas first turn into something you can see and share.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What exactly am I getting in the Premium Track (₦30,000)? <span class="faq-icon">+</span>
+        What exactly am I getting in the Intensive (Premium) Track (₦30,000)? <i data-lucide="chevron-down" class="faq-icon"></i>
       </button>
       <div class="faq-a">Most courses stop at the frontend—but we’ll also show you what happens 'under the hood.' Over a full month, we explore <strong>Python and Django</strong> in depth. You’ll learn how to build the logic and 'brains' of an app that stores information and makes it available when you need it. You’ll create your own database to store blog posts, connect it to your project, and see how everything works together. It’s the professional layer of skill that transforms you into a <strong>Full-Stack Developer</strong>.</div>
     </div>
@@ -1372,13 +1524,13 @@
   <h2 style="margin-bottom:.75rem">Ready to Build your first website?</h2>
   <p style="font-size:14px;color:#6b6b68;margin-bottom:2rem">Join WebDev Cohort 1 before spots fill up. Learn HTML, CSS, Python &amp; Django today.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a class="btn-outline" href="#free" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join Freemium HTML CSS course for ₦5,000">Join Freemium — ₦5,000</a>
-    <a class="btn-primary" href="#paid" aria-label="Enroll in Premium Django bootcamp for ₦30,000">Enroll — ₦30,000</a>
+    <a class="btn-outline" href="checkout.html" style="background: linear-gradient(135deg, #fbc531 0%, #e1b12c 100%); border-color: transparent; color: #04342C; font-weight: 700;" aria-label="Join Standard HTML CSS course for ₦5,000">Join Standard (School Rate) — ₦5,000</a>
+    <a class="btn-primary" href="checkout.html" aria-label="Enroll in Intensive Django bootcamp for ₦30,000">Enroll Intensive — ₦30,000</a>
   </div>
 </section>
 
 <footer role="contentinfo">
-  <p>WebDev Cohort 1 with XantSpace<br> &copy; 2026 &nbsp;&middot;&nbsp; Nigeria’s Practical Web Dev Bootcamp &nbsp;&middot;&nbsp; Built with purpose, taught with honesty.</p>
+  <p>Official Training Program by XantAcademy<br> &copy; 2026 &nbsp;&middot;&nbsp; Professional Tech Education for Africa &nbsp;&middot;&nbsp; Validated Curriculum & Practical Methodology.</p>
 </footer>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -1395,8 +1547,8 @@
     <!-- BODY -->
     <div class="spot-body">
       <div class="spot-live"><span class="spot-live-dot"></span> Limited-Time Offer</div>
-      <div class="spot-title" id="spot-heading">Secure Your <em>Spot</em> Now</div>
-      <p class="spot-sub">Cohort 1 seats are filling up fast. Lock in your place before the countdown ends and prices go up!</p>
+      <div class="spot-title" id="spot-heading">Final <em>Call</em>.</div>
+      <p class="spot-sub">Lock in the subsidized ₦5,000 student rate before enrollment closes.</p>
 
       <!-- TIMER -->
       <div class="spot-timer" aria-label="Countdown timer">
@@ -1422,10 +1574,10 @@
       </div>
 
       <!-- CTA -->
-      <a class="spot-cta" href="coming-soon.html" id="spotCta">🔥 Join Freemium — ₦5,000</a>
+      <a class="spot-cta" href="checkout.html" id="spotCta">🔥JOIN NOW🔥</a>
       <div class="spot-footer">
         <span class="spot-footer-icon">🔒</span>
-        Secure payment via Paystack · Only a few spots left
+        Secure payment · Only a few spots left
       </div>
     </div> <!-- End spot-body -->
   </div> <!-- End spot-card -->
@@ -1581,10 +1733,18 @@
     };
     
     // Console Warning
-    console.log("%c⚠️ XANT ACADEMY PROTECTION", "color: red; font-size: 24px; font-weight: bold;");
+    console.log("%c⚠️ XANTACADEMY PROTECTION", "color: red; font-size: 24px; font-weight: bold;");
     console.log("%cUnauthorized source code access or duplication is strictly prohibited. All rights reserved © 2026.", "color: #666; font-size: 14px;");
   })();
+
+  function activateCard(card) {
+    document.querySelectorAll('.expanding-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  }
 </script>
 
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

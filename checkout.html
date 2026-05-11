@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Portal | XantAcademy</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="https://xant-academy.vercel.app/favicon.png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/quantify" rel="stylesheet">
+  
+  <!-- LUCIDE ICONS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Intl Tel Input CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
+  <style>
+    :root {
+      --green-dark: #04342C;
+      --green-mid: #0F6E56;
+      --green: #1D9E75;
+      --green-light: #5DCAA5;
+      --green-pale: #E1F5EE;
+      --ink: #111210;
+      --ink-3: #6b6b68;
+      --bg: #f9f8f5;
+      --border: rgba(0,0,0,0.09);
+      --white: #ffffff;
+      --danger: #ff4757;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    
+    /* GRADIENT BG */
+    .bg-gradient {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(29, 158, 117, 0.05) 0%, rgba(255, 255, 255, 0) 40%),
+                  radial-gradient(circle at 90% 80%, rgba(4, 52, 44, 0.05) 0%, rgba(255, 255, 255, 0) 40%);
+      z-index: -1;
+    }
+
+    .main-wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      padding: 2rem;
+      gap: 4rem;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* LEFT CONTENT */
+    .content-side {
+      flex: 1;
+      max-width: 550px;
+      animation: fadeIn 0.8s ease-out;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .logo {
+      font-family: 'Quantify', sans-serif;
+      font-size: 1.8rem;
+      color: var(--green-dark);
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--green-dark);
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #6b6b68;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* JOURNEY FORM */
+    .journey-container {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(4,52,44,0.06);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      position: relative;
+      min-height: 280px;
+      margin-bottom: 2rem;
+    }
+
+    .step-indicator {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 2rem;
+    }
+    .step-dot {
+      flex: 1;
+      height: 6px;
+      background: var(--green-pale);
+      border-radius: 3px;
+      transition: background 0.3s;
+    }
+    .step-dot.active { background: var(--green); }
+
+    .journey-step {
+      display: none;
+      animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .journey-step.active {
+      display: block;
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(15px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .step-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Form controls */
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 6px; }
+    .form-control { 
+      width: 100%; 
+      padding: 14px 18px; 
+      border: 1px solid var(--border); 
+      border-radius: 12px; 
+      font-family: inherit; 
+      font-size: 14px; 
+      color: var(--ink); 
+      outline: none; 
+      transition: 0.2s; 
+      background: #fafafa;
+    }
+    .form-control:focus { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-pale); background: var(--white); }
+    
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2304342C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      cursor: pointer;
+    }
+    select.form-control:invalid { color: #999; }
+    
+    .error-msg {
+      color: var(--danger);
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    /* Intl Tel Input overrides */
+    .iti { width: 100%; }
+    .iti__flag-container { border-radius: 12px 0 0 12px; }
+
+    /* Plans */
+    .plan-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1rem; }
+    .plan-option input[type="radio"] { position: absolute; opacity: 0; }
+    .plan-label { 
+      display: flex; flex-direction: column; padding: 20px 12px; 
+      border: 2px solid var(--border); border-radius: 16px; 
+      cursor: pointer; transition: 0.2s; text-align: center; 
+      background: var(--white);
+    }
+    .plan-name { font-weight: 600; font-size: 15px; color: var(--ink); }
+    .plan-price { font-weight: 800; color: var(--green); font-size: 22px; margin-top: 4px; }
+    .plan-option input[type="radio"]:checked + .plan-label { border-color: var(--green); background: var(--green-pale); }
+    
+    .step-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+    .btn-next, .btn-pay {
+      flex: 1;
+      background: var(--green-dark);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover, .btn-pay:hover { 
+      background: var(--green); 
+      transform: scale(1.02); 
+      box-shadow: 0 5px 15px rgba(29, 158, 117, 0.3); 
+    }
+    
+    .btn-prev {
+      background: transparent;
+      color: var(--ink-3);
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-prev:hover { background: var(--bg); color: var(--ink); }
+
+    .back-link {
+        color: #6b6b68; 
+        text-decoration: none; 
+        font-size: 0.95rem; 
+        font-weight: 500; 
+        transition: color 0.3s; 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 8px;
+    }
+    .back-link:hover { color: var(--green); }
+
+    /* RIGHT SIDE: IMAGE */
+    .image-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: imageIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    @keyframes imageIn {
+      from { opacity: 0; transform: scale(0.9) translateX(50px); }
+      to { opacity: 1; transform: scale(1) translateX(0); }
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 4/5;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(4, 52, 44, 0.15);
+      border: 8px solid var(--white);
+      transform: rotate(3deg);
+      transition: transform 0.5s ease;
+    }
+    .image-container:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .image-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--green);
+      color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 10px 30px rgba(29, 158, 117, 0.3);
+      z-index: 2;
+      animation: badgePop 1.5s 0.5s both;
+    }
+    @keyframes badgePop {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Loading overlay */
+    .loading-overlay {
+      position: fixed; inset: 0; background: rgba(255,255,255,0.85);
+      z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .loading-overlay.active { opacity: 1; visibility: visible; }
+    .spinner {
+      width: 44px; height: 44px; border: 4px solid var(--green-pale);
+      border-top-color: var(--green); border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 1024px) {
+      .main-wrapper { flex-direction: column; text-align: center; gap: 3rem; margin-top: 4rem; margin-bottom: 4rem;}
+      .content-side { text-align: left; order: 2; margin: 0 auto; width: 100%; }
+      .image-side { order: 1; }
+      .image-container { transform: rotate(0deg); max-width: 400px; }
+      h1 { font-size: 2.8rem; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .journey-container { padding: 1.5rem; border-radius: 16px; }
+      .image-container { border-width: 4px; border-radius: 20px; }
+      .image-badge { padding: 1rem 1.5rem; font-size: 1rem; bottom: -10px; left: -10px; }
+      .step-actions { flex-direction: column-reverse; }
+      .btn-prev { padding: 14px; }
+    }
+    /* Alert Modal */
+    .alert-modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      z-index: 3000; display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: 0.3s ease;
+      backdrop-filter: blur(8px);
+      padding: 20px;
+    }
+    .alert-modal-overlay.active { opacity: 1; visibility: visible; }
+    
+    .alert-modal {
+      background: var(--white); width: 100%; max-width: 360px;
+      border-radius: 24px; padding: 2.5rem 2rem; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transform: translateY(30px) scale(0.95); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .alert-modal-overlay.active .alert-modal { transform: translateY(0) scale(1); }
+    
+    .alert-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #FFF1F0; color: var(--danger);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem;
+    }
+    .alert-icon svg { width: 30px; height: 30px; }
+    
+    .alert-modal p { color: var(--ink); font-size: 15px; line-height: 1.5; margin-bottom: 2rem; font-weight: 500;}
+    
+    .btn-alert {
+      display: inline-block; width: 100%; padding: 14px;
+      background: var(--ink); color: white; border: none;
+      border-radius: 50px; font-weight: 600; font-size: 15px; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-alert:hover { background: var(--green-dark); transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+    /* Success Modal */
+    .success-modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      z-index: 2000; display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: 0.3s ease;
+      backdrop-filter: blur(8px);
+      padding: 20px;
+    }
+    .success-modal-overlay.active { opacity: 1; visibility: visible; }
+    
+    .success-modal {
+      background: var(--white); width: 100%; max-width: 450px;
+      border-radius: 24px; padding: 3rem 2rem; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transform: translateY(30px) scale(0.95); transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .success-modal-overlay.active .success-modal { transform: translateY(0) scale(1); }
+    
+    .success-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--green-pale); color: var(--green);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;
+    }
+    .success-icon svg { width: 40px; height: 40px; }
+    
+    .success-modal h2 { font-size: 1.8rem; color: var(--green-dark); margin-bottom: 0.5rem; }
+    .success-modal p { color: var(--ink-3); font-size: 15px; line-height: 1.6; margin-bottom: 1.5rem; }
+    .success-modal strong { color: var(--ink); }
+    
+    .receipt-box {
+      background: #f8faf9; border: 1px dashed var(--green-light);
+      border-radius: 12px; padding: 1.2rem; margin-bottom: 2rem;
+    }
+    .receipt-label { font-size: 12px; font-weight: 600; color: var(--green-mid); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .receipt-ref { font-family: monospace; font-size: 1.1rem; color: var(--green-dark); font-weight: 700; }
+    
+    .whatsapp-prompt { font-size: 13px !important; color: var(--ink-3); margin-bottom: 1rem !important; }
+    
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 16px; background: #25D366; color: white;
+      border-radius: 50px; font-weight: 600; font-size: 16px; text-decoration: none;
+      transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp:hover { background: #1EBE5D; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4); }
+    .btn-whatsapp svg { width: 22px; height: 22px; }
+  </style>
+</head>
+<body>
+  
+  <div class="bg-gradient"></div>
+
+  <main class="main-wrapper">
+    <!-- LEFT SIDE: FORM JOURNEY -->
+    <div class="content-side">
+      <div class="logo">XantAcademy</div>
+      <h1>Academy <span>Enrollment</span>.</h1>
+      <p class="subtitle">Secure your placement in the upcoming cohort. We are delivering industry-standard tech training through subsidized student tracks.</p>
+
+      <div class="journey-container">
+        <form id="paymentForm">
+          
+          <div class="step-indicator">
+            <div class="step-dot active" id="dot1"></div>
+            <div class="step-dot" id="dot2"></div>
+            <div class="step-dot" id="dot3"></div>
+            <div class="step-dot" id="dot4"></div>
+          </div>
+
+          <!-- STEP 1: PROGRAM TRACK -->
+          <div class="journey-step active" id="step1">
+            <div class="step-header">01. Select Program Track</div>
+            <div class="plan-selector">
+              <div class="plan-option">
+                <input type="radio" name="plan" id="planFree" value="5000" required>
+                <label for="planFree" class="plan-label">
+                  <span class="plan-name">Standard Track (Subsidized)</span>
+                  <span class="plan-price"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦10,000</small>₦5,000</span>
+                </label>
+              </div>
+              <div class="plan-option">
+                <input type="radio" name="plan" id="planPremium" value="30000">
+                <label for="planPremium" class="plan-label">
+                  <span class="plan-name">Full-Stack Intensive (Premium)</span>
+                  <span class="plan-price"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦45,000</small>₦30,000</span>
+                </label>
+              </div>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-next" onclick="nextStep(2)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: STUDENT RECORDS -->
+          <div class="journey-step" id="step2">
+            <div class="step-header">02. Student Records</div>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" class="form-control" placeholder="E.g. John Doe" required>
+              <small style="font-size: 11px; color: var(--ink-3); margin-top: 4px; display: block;">Use the name on your bank account to help us verify your payment easily.</small>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="E.g. john@example.com" required>
+              <small style="font-size: 11px; color: var(--ink-3); margin-top: 4px; display: block;">Your receipt and class access link will be sent here.</small>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-prev" onclick="prevStep(1)">Back</button>
+              <button type="button" class="btn-next" onclick="nextStep(3)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: COMMUNICATION REGISTRY -->
+          <div class="journey-step" id="step3">
+            <div class="step-header">03. Communication Registry</div>
+            <div class="form-group">
+              <label for="phone">Phone Number (WhatsApp preferred)</label>
+              <input type="tel" id="phone" class="form-control" required>
+              <div id="phone-error" class="error-msg">Please enter a valid phone number</div>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-prev" onclick="prevStep(2)">Back</button>
+              <button type="button" class="btn-next" onclick="nextStep(4)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: INSTITUTIONAL AFFILIATION -->
+          <div class="journey-step" id="step4">
+            <div class="step-header">04. Campus & Tuition</div>
+            <div class="form-group">
+              <label for="recruiter">Select Your Institution</label>
+              <select id="recruiter" class="form-control" required>
+                <option value="" disabled selected>Select your school...</option>
+                <option value="FUTO">FUTO</option>
+                <option value="AE-FUNAI">AE-FUNAI</option>
+                <option value="MOUAU">MOUAU</option>
+                <option value="UNIUYO">UNIUYO</option>
+                <option value="XANTACADEMY">XANTACADEMY</option>
+              </select>
+              <small style="font-size: 11px; color: var(--ink-3); margin-top: 4px; display: block;">We partner with schools to bring these industry-standard courses to you at student-friendly rates.</small>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn-prev" onclick="prevStep(3)">Back</button>
+              <button type="submit" class="btn-pay" id="payBtn">Pay ₦0</button>
+            </div>
+            <div style="text-align: center; margin-top: 16px; font-size: 11px; color: var(--ink-3);">
+              🔒 Secured by <strong>Paystack</strong>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <div>
+        <a href="index.html" class="back-link">
+          <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+          Back to Website
+        </a>
+      </div>
+    </div>
+    
+    <!-- RIGHT SIDE: IMAGE -->
+    <div class="image-side">
+      <div class="image-container">
+        <img src="cohort.jpg" alt="XantAcademy Cohort 1 Preview" />
+      </div>
+      <div class="image-badge">Limited Slots · 2026</div>
+    </div>
+  </main>
+  
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p style="margin-top: 15px; font-weight: 600; color: var(--green-dark);">Verifying Student Records...</p>
+  </div>
+
+  <!-- Custom Alert Modal -->
+  <div class="alert-modal-overlay" id="alertModal">
+    <div class="alert-modal">
+      <div class="alert-icon">
+        <i data-lucide="alert-circle"></i>
+      </div>
+      <p id="alertMessage">Please select a package.</p>
+      <button type="button" class="btn-alert" onclick="closeAlert()">Okay</button>
+    </div>
+  </div>
+
+  <!-- Custom Success Modal -->
+  <div class="success-modal-overlay" id="successModal">
+    <div class="success-modal">
+      <div class="success-icon">
+        <i data-lucide="check"></i>
+      </div>
+      <h2>Enrollment Confirmed!</h2>
+      <p>Welcome, <strong id="successName">Student</strong>! Your registration with XantAcademy has been officially processed. Your admission details have been sent to <strong id="successEmail"></strong>.</p>
+      
+      <div class="receipt-box">
+        <div class="receipt-label">Student Reference ID</div>
+        <div class="receipt-ref" id="successRef"></div>
+      </div>
+
+      <p class="whatsapp-prompt">Click the button below to join the official Cohort WhatsApp group and get started!</p>
+      
+      <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" class="btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Access Student Portal (WhatsApp)
+      </a>
+    </div>
+  </div>
+
+  <!-- Intl Tel Input JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <!-- Paystack JS -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <script>
+    // --- JOURNEY LOGIC ---
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    function showAlert(message) {
+      document.getElementById('alertMessage').textContent = message;
+      document.getElementById('alertModal').classList.add('active');
+    }
+    
+    function closeAlert() {
+      document.getElementById('alertModal').classList.remove('active');
+    }
+
+    function updateIndicators(step) {
+      for(let i=1; i<=totalSteps; i++) {
+        document.getElementById('dot'+i).classList.toggle('active', i <= step);
+      }
+    }
+
+    function nextStep(targetStep) {
+      // Validate current step before proceeding
+      if (currentStep === 1) {
+        const planChecked = document.querySelector('input[name="plan"]:checked');
+        if (!planChecked) {
+          showAlert("Please select a package to continue.");
+          return;
+        }
+      }
+      else if (currentStep === 2) {
+        const name = document.getElementById('fullName').value.trim();
+        const emailInput = document.getElementById('email');
+        if (!name || !emailInput.value.trim() || !emailInput.checkValidity()) {
+          emailInput.reportValidity();
+          return;
+        }
+      }
+      else if (currentStep === 3) {
+        if (!iti.isValidNumber()) {
+          document.getElementById('phone').style.borderColor = "var(--danger)";
+          document.getElementById('phone-error').style.display = "block";
+          return;
+        }
+      }
+
+      document.getElementById('step' + currentStep).classList.remove('active');
+      currentStep = targetStep;
+      document.getElementById('step' + currentStep).classList.add('active');
+      updateIndicators(currentStep);
+    }
+
+    function prevStep(targetStep) {
+      document.getElementById('step' + currentStep).classList.remove('active');
+      currentStep = targetStep;
+      document.getElementById('step' + currentStep).classList.add('active');
+      updateIndicators(currentStep);
+    }
+
+    // --- INIT LOGIC ---
+    // 1. Handle URL Parameters for Plan Pre-selection
+    const urlParams = new URLSearchParams(window.location.search);
+    const planParam = urlParams.get('plan');
+    const radioFree = document.getElementById('planFree');
+    const radioPremium = document.getElementById('planPremium');
+    
+    if (planParam === 'premium') {
+      radioPremium.checked = true;
+    } else {
+      radioFree.checked = true; // Default
+    }
+
+    // 2. Update button text based on selection
+    const planRadios = document.querySelectorAll('input[name="plan"]');
+    const payBtn = document.getElementById('payBtn');
+    
+    function updateBtnPrice() {
+      const selectedPlan = document.querySelector('input[name="plan"]:checked');
+      if(selectedPlan) {
+        payBtn.innerText = `Process Tuition Fee (₦${parseInt(selectedPlan.value).toLocaleString()})`;
+      }
+    }
+    
+    planRadios.forEach(radio => radio.addEventListener('change', updateBtnPrice));
+    updateBtnPrice(); // Initial set
+
+    // 3. Initialize Phone Input (Checks Country Codes)
+    const phoneInput = document.querySelector("#phone");
+    const phoneError = document.querySelector("#phone-error");
+    
+    const iti = window.intlTelInput(phoneInput, {
+      preferredCountries: ["ng", "gh", "ke", "us", "gb"],
+      separateDialCode: true,
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    // Validate phone on blur
+    phoneInput.addEventListener('blur', function() {
+      if (phoneInput.value.trim()) {
+        if (!iti.isValidNumber()) {
+          phoneInput.style.borderColor = "var(--danger)";
+          phoneError.style.display = "block";
+        } else {
+          phoneInput.style.borderColor = "var(--green)";
+          phoneError.style.display = "none";
+        }
+      }
+    });
+
+    // Reset styles on keyup
+    phoneInput.addEventListener('keyup', function() {
+      phoneInput.style.borderColor = "var(--border)";
+      phoneError.style.display = "none";
+    });
+
+    // 4. Handle Form Submission & Paystack
+    const form = document.getElementById('paymentForm');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Final validations
+      if (!iti.isValidNumber()) {
+        prevStep(3); // Go back to phone step if invalid somehow
+        phoneInput.style.borderColor = "var(--danger)";
+        phoneError.style.display = "block";
+        return;
+      }
+      const recruiter = document.getElementById('recruiter').value;
+      if(!recruiter) {
+         showAlert("Please select your school to continue.");
+         return;
+      }
+      
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = iti.getNumber(); // Gets full international number (e.g. +234...)
+      const amount = document.querySelector('input[name="plan"]:checked').value;
+      
+      payWithPaystack(email, amount, fullName, phone, recruiter);
+    });
+
+    function payWithPaystack(email, amount, fullName, phone, recruiter) {
+      // Keep user's live key
+      const paystackPublicKey = 'pk_live_8a2ce00eeb58620a357a7ea8683296aecab55537'; 
+      
+      let handler = PaystackPop.setup({
+        key: paystackPublicKey,
+        email: email,
+        amount: amount * 100, // Paystack requires amount in Kobo/Cents
+        currency: 'NGN',
+        metadata: {
+          custom_fields: [
+            { display_name: "Full Name", variable_name: "full_name", value: fullName },
+            { display_name: "Phone Number", variable_name: "phone_number", value: phone },
+            { display_name: "School", variable_name: "school", value: recruiter }
+          ]
+        },
+        onClose: function() {
+          showAlert("Payment was cancelled. You can try again when you're ready.");
+        },
+        callback: function(response) {
+          let reference = response.reference;
+          loadingOverlay.classList.add('active');
+          
+          // 1. Prepare data for the Google Sheet
+          const sheetData = {
+            studentName: fullName,
+            email: email,
+            phone: phone,
+            amount: amount,
+            recruiter: recruiter,
+            reference: reference
+          };
+
+          // 2. Send data to Google Apps Script Web App
+          const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyDfN28BScg0LACrJETG9_mMMsZKY1ZIdKp2UHf4ub60YpS2zgpOsWwrDGjTY_m8ODK/exec"; 
+
+          if (GOOGLE_SCRIPT_URL) {
+            fetch(GOOGLE_SCRIPT_URL, {
+              method: 'POST',
+              // We omit headers to send as text/plain, avoiding CORS preflight issues
+              body: JSON.stringify(sheetData)
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status === 'success') {
+                finishPayment(email, reference, fullName);
+              } else {
+                document.getElementById('loadingOverlay').classList.remove('active');
+                showAlert("Payment Verification Failed: " + data.message);
+              }
+            })
+            .catch(error => {
+              console.error("Verification error:", error);
+              document.getElementById('loadingOverlay').classList.remove('active');
+              showAlert("There was an error verifying your payment. If you were debited, please contact support with your reference: " + reference);
+            });
+          } else {
+            // If URL isn't set yet, just finish the payment flow
+            finishPayment(email, reference, fullName);
+          }
+        }
+      });
+      
+      handler.openIframe();
+    }
+
+    function finishPayment(email, reference, fullName) {
+      document.getElementById('loadingOverlay').classList.remove('active');
+      
+      // Extract first name for a more personal greeting
+      const firstName = fullName ? fullName.split(' ')[0] : 'Student';
+      document.getElementById('successName').textContent = firstName;
+      
+      document.getElementById('successEmail').textContent = email;
+      document.getElementById('successRef').textContent = reference;
+      document.getElementById('successModal').classList.add('active');
+    }
+
+    /* ═══════════════════════════════════════════
+       SOURCE PROTECTION SUITE 🛡️
+       ═══════════════════════════════════════════ */
+    (function() {
+      // Disable Right-Click
+      document.addEventListener('contextmenu', e => e.preventDefault());
+
+      // Disable common DevTool shortcuts
+      document.onkeydown = function(e) {
+        if (e.keyCode == 123) { // F12
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
+          return false;
+        }
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U (View Source)
+          return false;
+        }
+      };
+      
+      // Console Warning
+      console.log("%c⚠️ XANTACADEMY PROTECTION", "color: red; font-size: 24px; font-weight: bold;");
+      console.log("%cUnauthorized source code access or duplication is strictly prohibited. All rights reserved © 2026.", "color: #666; font-size: 14px;");
+    })();
+  </script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
