@@ -62,7 +62,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      height: 70px;
+      height: 60px;
     }
     nav {
       max-width: 1200px; margin: 0 auto; padding: 0 2rem;
@@ -119,9 +119,9 @@
     .discipline-section { padding: 5rem 2rem; background: var(--white); }
     .discipline-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      margin-top: 4rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
     }
     .discipline-card {
       border-radius: 24px;
@@ -241,12 +241,35 @@
     }
 
     @media (max-width: 900px) {
-      .grid-2, .founder-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-      .image-wrapper { max-width: 400px; margin: 0 auto; }
-      .nav-links { display: none; }
-      .founder-section { padding: 3rem 2rem; margin: 2rem 1rem; }
-      .about-hero h1 { font-size: 2.8rem; }
-      .founder-img { max-width: 250px; margin: 0 auto; }
+      .section { padding: 3rem 1.25rem; }
+      nav { padding: 0 1rem; }
+      .nav-links { display: flex; gap: 0.75rem; }
+      .nav-link { font-size: 13px; }
+      .nav-cta { padding: 8px 14px; font-size: 11px; }
+      
+      .grid-2, .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .image-wrapper { max-width: 400px; margin: 0 auto; aspect-ratio: 1; }
+      .content-block h2 { font-size: 1.8rem; }
+      .founder-section { padding: 3rem 1.5rem; margin: 2rem 1rem; border-radius: 24px; }
+      .about-hero { padding: 8rem 1.25rem 4rem; }
+      .about-hero h1 { font-size: 2.5rem; }
+      .about-hero p { font-size: 1rem; }
+      .founder-img { max-width: 200px; margin: 0 auto; }
+      .founder-content h2 { font-size: 1.8rem; }
+
+      .discipline-section { padding: 3rem 1rem; }
+      .values-grid { gap: 1rem; }
+      .value-card { padding: 1.5rem; }
+      
+      section[style*="border-radius: 60px"] { border-radius: 24px !important; padding: 3rem 1rem !important; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 1rem; }
+      .nav-links { gap: 0.5rem; }
+      .nav-link { display: none; } /* Hide 'Home' text on very small screens to keep CTA */
+      .nav-link:first-child { display: block; } /* Show only home or just use icons? Let's just keep 'Home' */
+      .nav-cta { padding: 6px 12px; font-size: 10px; }
     }
   </style>
 </head>
@@ -257,8 +280,7 @@
       <a class="nav-logo" href="index.html">Xant<span>Academy</span></a>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link" style="color: var(--green);">About</a>
-        <a href="index.html#paid" class="nav-cta">Join Cohort</a>
+        <a class="nav-cta" href="checkout.html" aria-label="Enroll in Premium track for ₦30,000">Enroll — ₦30,000</a>
       </div>
     </nav>
   </header>

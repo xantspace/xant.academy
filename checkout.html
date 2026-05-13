@@ -43,7 +43,8 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* Better for long content on mobile */
+      padding: 2rem 1rem;
       overflow-x: hidden;
     }
     
@@ -59,13 +60,14 @@
     .main-wrapper {
       display: flex;
       width: 100%;
-      max-width: 1200px;
-      padding: 2rem;
-      gap: 4rem;
-      align-items: center;
+      max-width: 1100px;
+      padding: 0;
+      gap: 3rem;
+      align-items: flex-start;
       justify-content: space-between;
       position: relative;
       z-index: 1;
+      margin-top: 2rem;
     }
 
     /* LEFT CONTENT */
@@ -90,16 +92,15 @@
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       font-weight: 800;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       color: var(--green-dark);
+      letter-spacing: -1.5px;
     }
     h1 span {
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--green);
     }
 
     p.subtitle {
@@ -325,20 +326,24 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     @media (max-width: 1024px) {
-      .main-wrapper { flex-direction: column; text-align: center; gap: 3rem; margin-top: 4rem; margin-bottom: 4rem;}
-      .content-side { text-align: left; order: 2; margin: 0 auto; width: 100%; }
-      .image-side { order: 1; }
-      .image-container { transform: rotate(0deg); max-width: 400px; }
-      h1 { font-size: 2.8rem; }
+      .main-wrapper { flex-direction: column; text-align: left; gap: 3rem; margin-top: 1rem; }
+      .content-side { order: 2; margin: 0; max-width: 100%; }
+      .image-side { order: 1; width: 100%; justify-content: flex-start; }
+      .image-container { transform: rotate(0deg); max-width: 100%; height: 250px; }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .journey-container { padding: 1.5rem; border-radius: 16px; }
-      .image-container { border-width: 4px; border-radius: 20px; }
-      .image-badge { padding: 1rem 1.5rem; font-size: 1rem; bottom: -10px; left: -10px; }
+      body { padding: 1rem; }
+      .main-wrapper { gap: 2rem; }
+      .logo { font-size: 1.4rem; margin-bottom: 1rem; }
+      h1 { font-size: 2rem; }
+      p.subtitle { font-size: 14px; margin-bottom: 1.5rem; }
+      .plan-selector { grid-template-columns: 1fr; }
+      .journey-container { padding: 1.25rem; border-radius: 16px; min-height: auto; }
+      .image-container { height: 180px; border-radius: 12px; border-width: 4px; }
+      .image-badge { padding: 10px 15px; font-size: 0.9rem; bottom: -10px; left: 15px; }
       .step-actions { flex-direction: column-reverse; }
-      .btn-prev { padding: 14px; }
+      .btn-prev { padding: 14px; width: 100%; }
     }
     /* Alert Modal */
     .alert-modal-overlay {
@@ -449,10 +454,10 @@
             <div class="step-header">01. Select Program Track</div>
             <div class="plan-selector">
               <div class="plan-option">
-                <input type="radio" name="plan" id="planFree" value="5000" required>
+                <input type="radio" name="plan" id="planFree" value="10000" required>
                 <label for="planFree" class="plan-label">
                   <span class="plan-name">Standard Track (Subsidized)</span>
-                  <span class="plan-price"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦10,000</small>₦5,000</span>
+                  <span class="plan-price"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦15,000</small>₦10,000</span>
                 </label>
               </div>
               <div class="plan-option">
@@ -512,7 +517,9 @@
                 <option value="AE-FUNAI">AE-FUNAI</option>
                 <option value="MOUAU">MOUAU</option>
                 <option value="UNIUYO">UNIUYO</option>
-                <option value="XANTACADEMY">XANTACADEMY</option>
+                <option value="UNIZIK">UNIZIK</option>
+                <option value="KWASU">KWASU</option>
+                <option value="Others">Others</option>
               </select>
               <small style="font-size: 11px; color: var(--ink-3); margin-top: 4px; display: block;">We partner with schools to bring these industry-standard courses to you at student-friendly rates.</small>
             </div>
@@ -577,7 +584,7 @@
 
       <p class="whatsapp-prompt">Click the button below to join the official Cohort WhatsApp group and get started!</p>
       
-      <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" class="btn-whatsapp" target="_blank">
+      <a href="https://chat.whatsapp.com/JBqDqFM6trGHfgvTXBJyIB" class="btn-whatsapp" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         Access Student Portal (WhatsApp)
       </a>
