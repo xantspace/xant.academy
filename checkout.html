@@ -457,14 +457,14 @@
                 <input type="radio" name="plan" id="planFree" value="10000" required>
                 <label for="planFree" class="plan-label">
                   <span class="plan-name">Standard Track (Subsidized)</span>
-                  <span class="plan-price"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦15,000</small>₦10,000</span>
+                  <span class="plan-price" id="standardPriceDisplay"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦15,000</small>₦10,000</span>
                 </label>
               </div>
               <div class="plan-option">
                 <input type="radio" name="plan" id="planPremium" value="30000">
                 <label for="planPremium" class="plan-label">
                   <span class="plan-name">Full-Stack Intensive (Premium)</span>
-                  <span class="plan-price"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦45,000</small>₦30,000</span>
+                  <span class="plan-price" id="premiumPriceDisplay"><small style="text-decoration: line-through; opacity: 0.5; font-size: 14px; font-weight: 500; margin-right: 4px;">₦45,000</small>₦30,000</span>
                 </label>
               </div>
             </div>
@@ -521,6 +521,10 @@
                 <option value="KWASU">KWASU</option>
                 <option value="Others">Others</option>
               </select>
+              <div id="otherSchoolGroup" style="display: none; margin-top: 15px;">
+                <label for="otherSchool" style="display: block; font-size: 13px; margin-bottom: 8px; font-weight: 500;">Specify Your Institution</label>
+                <input type="text" id="otherSchool" class="form-control" placeholder="Enter your school name">
+              </div>
               <small style="font-size: 11px; color: var(--ink-3); margin-top: 4px; display: block;">We partner with schools to bring these industry-standard courses to you at student-friendly rates.</small>
             </div>
             <div class="step-actions">
@@ -597,6 +601,9 @@
   <script src="https://js.paystack.co/v1/inline.js"></script>
 
   <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFu7GM98CRbPrRMa1Idi9dqZ60oziVKKPG2qS8kdmj64bZid892Y2RHsZQLrnptLyy/exec";
+    const DISCOUNT_SLOT_LIMIT = 100;
+
     // --- JOURNEY LOGIC ---
     let currentStep = 1;
     const totalSteps = 4;
@@ -681,6 +688,21 @@
     planRadios.forEach(radio => radio.addEventListener('change', updateBtnPrice));
     updateBtnPrice(); // Initial set
 
+    // Toggle 'Other School' input
+    const recruiterSelect = document.getElementById('recruiter');
+    const otherSchoolGroup = document.getElementById('otherSchoolGroup');
+    const otherSchoolInput = document.getElementById('otherSchool');
+
+    recruiterSelect.addEventListener('change', function() {
+      if (this.value === 'Others') {
+        otherSchoolGroup.style.display = 'block';
+        otherSchoolInput.required = true;
+      } else {
+        otherSchoolGroup.style.display = 'none';
+        otherSchoolInput.required = false;
+      }
+    });
+
     // 3. Initialize Phone Input (Checks Country Codes)
     const phoneInput = document.querySelector("#phone");
     const phoneError = document.querySelector("#phone-error");
@@ -735,7 +757,12 @@
       const phone = iti.getNumber(); // Gets full international number (e.g. +234...)
       const amount = document.querySelector('input[name="plan"]:checked').value;
       
-      payWithPaystack(email, amount, fullName, phone, recruiter);
+      let finalSchool = recruiter;
+      if (recruiter === 'Others') {
+        finalSchool = document.getElementById('otherSchool').value || 'Other School';
+      }
+      
+      payWithPaystack(email, amount, fullName, phone, finalSchool);
     });
 
     function payWithPaystack(email, amount, fullName, phone, recruiter) {
@@ -772,8 +799,6 @@
           };
 
           // 2. Send data to Google Apps Script Web App
-          const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyDfN28BScg0LACrJETG9_mMMsZKY1ZIdKp2UHf4ub60YpS2zgpOsWwrDGjTY_m8ODK/exec"; 
-
           if (GOOGLE_SCRIPT_URL) {
             fetch(GOOGLE_SCRIPT_URL, {
               method: 'POST',
@@ -815,6 +840,27 @@
       document.getElementById('successRef').textContent = reference;
       document.getElementById('successModal').classList.add('active');
     }
+
+    // --- REGISTRATION COUNT / DISCOUNT GATE ---
+    function applyFullPrice() {
+      document.getElementById('planFree').value = '15000';
+      document.getElementById('standardPriceDisplay').innerHTML = '₦15,000';
+      updateBtnPrice();
+    }
+
+    async function checkRegistrationCount() {
+      try {
+        const res = await fetch(GOOGLE_SCRIPT_URL + '?action=getCount');
+        const data = await res.json();
+        if (data.count >= DISCOUNT_SLOT_LIMIT) {
+          applyFullPrice();
+        }
+      } catch (e) {
+        // Network error — keep discounted price
+      }
+    }
+
+    checkRegistrationCount();
 
     /* ═══════════════════════════════════════════
        SOURCE PROTECTION SUITE 🛡️
